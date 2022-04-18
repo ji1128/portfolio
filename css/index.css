@@ -1,0 +1,491 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "NeueMontreal";
+    src: url("../fonts/NeueMontreal-Light.woff") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    src: url("../fonts/NeueMontreal-Regular.woff") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    src: url("../fonts/NeueMontreal-Medium.woff") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    src: url("../fonts/NeueMontreal-Bold.woff") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+
+
+/*  font-family: 'NeueMontreal', sans-serif; */
+
+/* font-family: 'Noto Sans KR', sans-serif; */
+
+/* ============================================== */
+
+body{font-family: 'NeueMontreal', 'Noto Sans KR', sans-serif;}
+
+/* #section2 h3{display: none;} */
+
+#section0 {
+    background: url(../images/bg/mo-bg.png) center;
+    background-size: cover;
+
+}
+
+#section1 {
+    background: url(../images/bg/mo-bg-blue.png) center;
+    background-size: cover;
+}
+
+#section2 {
+    background: url(../images/bg/mo-bg.png) center;
+    background-size: cover;
+}
+
+#section3 {
+    background: url(../images/bg/mo-bg-black.png) center;
+    background-size: cover;
+}
+
+/* ============MO-header============ */
+
+/* pc-menu 숨기기 */
+#gnb-pc{display: none;}
+
+header {
+    width: 100%;
+    height: 55px;
+    /* background-color: blueviolet; */
+    position: fixed;
+    
+    /*상단고정*/
+    order: 1;
+    z-index: 10;
+}
+header h1{
+    display: flex;
+    align-items: center;
+    padding: 20px 0 0 25px;
+    font-size: 15px;
+    color: #fff;
+}
+header h1 a{letter-spacing:1px}
+
+/* menu-toggle-btn */
+.menu-toggle-btn{
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 16px;
+    right: 18px;
+    z-index: 200;
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+    box-sizing: border-box;
+    /* margin: 10px 0 0 0 ; */
+    /* background-color: greenyellow; */
+}
+
+.menu-toggle-btn > div{
+    width: 27px;
+    height: 1.7px;
+    border-radius: 2px;
+    background-color: #fff;
+    margin: 5px 0; /*상하좌우 벌려주기*/
+}
+
+/* 햄버거 버튼 -> X모양 */
+.menu-toggle-btn.active #one{
+    transform: translateY(6.5px) rotate(-150deg);
+    transition: all 0.6s ease-in-out;
+    background-color: #fff;
+}
+.menu-toggle-btn.active #two{
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+}
+.menu-toggle-btn.active #three{
+    transform: translateY(-7px) rotate(-30deg);
+    transition: all 0.6s ease-in-out;
+    background-color: #fff;
+}
+
+/* menu 뒷배경 */
+.mo-menu-box{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba( 000, 000, 000, 0.8);
+    z-index: 8; 
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+}
+.mo-menu-box.show{
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.6s ease-in-out;
+}
+/* mo-menu-------------- */
+#gnb-mo.show{
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.6s ease-in-out;
+}
+#gnb-mo{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+
+    overflow: hidden;
+}
+#gnb-mo ul li{
+    margin: 22px 0;
+}
+#gnb-mo ul li:first-child{
+    margin: 0px 0 22px;
+}
+/* menu 글자색상 */
+#gnb-mo ul li a{
+    color: #fff;
+    font-size: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+    
+}
+#gnb-mo ul li a:hover{
+    text-decoration: underline;
+    text-underline-position:under;
+    
+}
+
+/* link 버튼--------------- */
+#gnb-mo ul li.link{
+    float: left;
+    margin: 18px 7px 50px;
+}
+#gnb-mo ul li.link a:hover{
+    text-decoration: none;
+}
+div.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 145px;
+    height: 55px;
+    border: 1px solid #fff;
+    font-size: 35px;
+    font-weight: 100;
+    /* transition: all 0.3s ease-in-out; */
+    border-radius: 100px;
+    color: #fff;
+}
+div.btn.btn--white{
+    background-color: #fff;
+    color: #000;
+}
+div.btn.btn--black{
+    width: 113px;
+}
+
+
+/* ============MO-intro============ */
+#section0{
+    display: flex;
+    align-items: center;
+}
+#section0 .inner{
+    
+    width: 90%;
+    height: 100vh;
+    /* background-color: rgba( 000, 000, 000, 0.6); */
+    position: relative;
+}
+
+@keyframes cursor {
+    to {
+        border-color: transparent;
+    }
+}
+
+.txt {
+    display: table-cell;
+    vertical-align: middle;
+    border-right: 0.05em solid #F81857; 
+    animation: cursor 0.5s ease infinite;
+    
+    font-size: 50px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    position: absolute;
+    top: 100px;
+}
+
+
+#section0 .inner h3{
+    color: #fff;
+    position: absolute;
+    top: 320px;
+    font-weight: 100;
+    font-size: 25px;
+    
+}
+#section0 .inner .img-box{
+    width: 300px;
+    height: 100%;
+}
+#section0 .inner div img{
+    width: 300px;
+    position: absolute;
+    right: 0;
+    bottom: 250px;
+}
+
+
+
+
+
+/* ============MO-PORTFOLIO============ */
+#section1 .inner{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* ============MO-header============ */
+#section2 .inner{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+/* ============MO-header============ */
+#section3 .inner{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+
+
+/* ===============Tab=============== */
+@media all and (min-width:768px) {
+
+    #section0 {
+        background: url(../images/bg/tab-bg.png) center;
+        background-size: cover;
+
+    }
+
+    #section1 {
+        background: url(../images/bg/tab-bg-blue.png) center;
+        background-size: cover;
+    }
+
+    #section2 {
+        background: url(../images/bg/tab-bg.png) center;
+        background-size: cover;
+    }
+
+    #section3 {
+        background: url(../images/bg/tab-bg-black.png) center;
+        background-size: cover;
+    }
+
+
+    /* ============tab-header============ */
+    header{
+        height: 70px;
+    }
+    header h1{
+        font-size: 15px;
+        padding: 25px 0 0 25px;
+    }
+
+    /* menu-toggle-btn */
+    .menu-toggle-btn{
+        /* background-color: greenyellow; */
+        top: 22px;
+        right: 23px;
+    }
+
+    /* tab-menu---------------- */
+    #gnb-mo ul li{
+        margin: 30px 0;
+    }
+    #gnb-mo ul li:first-child{
+        margin: 0px 0 30px 0;
+    }
+    /* menu 글자색상 */
+    #gnb-mo ul li a{
+        font-size: 60px;
+    }
+    
+    /* link 버튼--------------- */
+    #gnb-mo ul li.link{
+        float: left;
+        margin: 20px 7px 70px;
+    }
+    #gnb-mo ul li.link a:hover{
+        text-decoration: none;
+    }
+    div.btn{
+        width: 170px;
+        height: 72px;
+        font-size: 42px;
+        font-weight: 100;
+        /* transition: all 0.3s ease-in-out; */
+    }
+    div.btn.btn--white{
+        background-color: #fff;
+        color: #000;
+    }
+    div.btn.btn--black{
+        width: 118px;
+    }
+
+
+
+
+
+
+
+
+}
+
+
+/* ===============PC=============== */
+@media all and (min-width:1200px) {
+    #section0 {
+        background: url(../images/bg/pc-bg.png) center;
+        background-size: cover;
+
+    }
+
+    #section1 {
+        background: url(../images/bg/pc-bg-blue.png) center;
+        background-size: cover;
+    }
+
+    #section2 {
+        background: url(../images/bg/pc-bg.png) center;
+        background-size: cover;
+    }
+
+    #section3 {
+        background: url(../images/bg/pc-bg-black.png) center;
+        background-size: cover;
+    }
+
+    /* ============PC-header============ */
+    #gnb-pc{display: flex;}
+    #gnb-mo, .menu-toggle-btn{display: none;}
+
+    header{
+        width: 100%;
+        height: 90px;
+        /* background-color: violet; */
+        display: flex;
+        justify-content: center;
+    }
+    .inner{
+        width: 1350px;
+        height: 90px;
+        /* background-color: royalblue; */
+        position: relative;
+
+    }
+    header h1{
+        padding: 35px 0;
+        font-size: 17px;
+    }
+    
+    #gnb-pc{
+        position: absolute;
+        right: 0;
+        top: 35px;
+    }
+    #gnb-pc ul li{
+        float: left;
+        padding: 0 25px;
+    }
+    #gnb-pc ul li:nth-child(4){
+        padding: 0 30px;
+    }
+    #gnb-pc ul li a{
+        font-size: 17px;
+        letter-spacing: 0.5px;
+        color: #fff;
+    }
+    #gnb-pc ul li a:hover{
+        text-decoration: underline;
+        text-underline-position:under;
+    }
+    #gnb-pc ul li.link{
+        padding: 0 13px;
+    }
+    #gnb-pc ul li:last-child{
+        padding: 0 0 0 13px;
+    }
+    #gnb-pc ul li.link a:hover{
+        text-decoration: none;
+    }
+
+
+    /* link버튼---------------- */
+    div.btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 72px;
+        height: 26px;
+        border: 1px solid #fff;
+        font-size: 17px;
+        font-weight: 100;
+        /* transition: all 0.3s ease-in-out; */
+        border-radius: 100px;
+        color: #fff;
+    }
+    div.btn.btn--white{
+        background-color: #fff;
+        color: #000;
+    }
+    div.btn.btn--black{
+        width: 58px;
+    }
+
+
+
+
+
+
+
+
+
+
+}
