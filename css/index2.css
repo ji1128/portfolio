@@ -1,6 +1,44 @@
 @charset "UTF-8";
 
-/* =====================MO========================= */
+@font-face {
+    font-family: "NeueMontreal";
+    src: url("../fonts/NeueMontreal-Light.woff") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    src: url("../fonts/NeueMontreal-Regular.woff") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    src: url("../fonts/NeueMontreal-Medium.woff") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NeueMontreal";
+    src: url("../fonts/NeueMontreal-Bold.woff") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+
+
+/*  font-family: 'NeueMontreal', sans-serif; */
+
+/* font-family: 'Noto Sans KR', sans-serif; */
+
+/* ============================================== */
+
+body{font-family: 'NeueMontreal', 'Noto Sans KR', sans-serif;}
 
 /* #section2 h3{display: none;} */
 
@@ -185,6 +223,9 @@ div.btn.btn--black{
     justify-content: center;
     align-items: center;
 }
+#section0 .intro{
+
+}
 #section0 h1{
     font-size: 49px;
     color: #fff;
@@ -243,139 +284,11 @@ div.btn.btn--black{
 
 
 /* ============MO-PORTFOLIO============ */
-#section1{width: 100%;height: 100vh;}
-.scrollable-content{
-    overflow-y: scroll;
-    width: 85%;
-    margin: 2% auto 0;
-    height: 85vh;
-    background: rgba(255, 255, 255, 0.43);
-    border-radius: 20px;
-}
-@media screen and (max-height: 300px) {
-    .scrollable-content{
-        height: 150px;
-    }
-    /* h4{
-        margin: 0;
-        padding: 0;
-    } */
-}
-
-/* scroolBar 꾸미기--------------- */
-.scroolBar { 
-    overflow-y: scroll;
-}
-.scroolBar::-webkit-scrollbar {
-    width: 10px;  /* 스크롤바의 너비 */
-}
-.scroolBar::-webkit-scrollbar-thumb {
-    height: 30%; /* 스크롤바의 길이 */
-    background: #5E3C89; /* 스크롤바의 색상 */
-    border-radius: 10px;
-}
-.scroolBar::-webkit-scrollbar-track {
-    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
-}
-
-/* scroolBar 안보이게하기 (투명) */
-/* .scroolBar::-webkit-scrollbar {
-    display: none;
-} */
-#section1 .inner{width: 90%;margin: auto;}
-#section1 .inner h2{
-    color: #fff;
-    letter-spacing: 1px;
-    font-size: 5.5vw; /*23px*/
-    font-weight: 900;
-    margin: 12px 0 15px;
-}
-/* portfolio-content ------------------- */
-#section1 .inner .content-box ul li{
+#section1 .inner{
     width: 100%;
-    height: 150px;
-    background-color: #E1E1E1;
-    border-radius: 15px;
-    margin: 10px 0;
-    position: relative; /*하위 이미지 & 텍스트 정렬*/
+    height: 100vh;
+    overflow: hidden;
 }
-
-/* 포트폴리오 이미지 */
-#section1 .inner .content-box ul li .img-cont{
-    width: 100%;
-    height: 150px;
-    background-size: contain;
-    background-color: #E1E1E1;
-    border-radius: 15px;
-    /* margin: 5px; */
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    cursor: pointer;
-}
-/* 포트폴리오 이미지 효과 */
-#section1 .inner .content-box ul li .hover-box{
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 8;
-
-    background: rgba(94,60,137,0.8);
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
-    z-index: 10;
-}
-#section1 .inner .content-box ul li:hover .hover-box{
-    opacity: 1;
-}
-#section1 .inner .content-box ul li.list-ad .img-cont{
-    background: url(../images/site-img/pc-addict.png) no-repeat center;
-    background-size: contain;
-    transition: all 0.5s ease-in-out;
-}
-#section1 .inner .content-box ul li.list-st .img-cont{
-    background: url(../images/site-img/pc-starbucks.png) no-repeat center;
-    background-size: contain;
-    transition: all 0.5s ease-in-out;
-}
-#section1 .inner .content-box ul li.list-sp .img-cont{
-    background: url(../images/site-img/pc-seohora.png) no-repeat center;
-    background-size: contain;
-    transition: all 0.5s ease-in-out;
-}
-#section1 .inner .content-box ul li.list-react .img-cont{
-
-}
-#section1 .inner .content-box ul li.list-uxui .img-cont{
-    background: url(../images/site-img/tab-plantlife.png) no-repeat center;
-    background-size: contain;
-    transition: all 0.5s ease-in-out;
-}
-#section1 .inner .content-box ul li.list-od .img-cont{
-
-}
-
-
-#section1 .inner .content-box ul li h4{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-
-
-
-
-
-
-
-
 
 
 /* ============MO-skill============ */
@@ -741,9 +654,7 @@ div.btn.btn--black{
 
     #section3 .inner{
         position: relative;
-        width: 80%;
-        height: 80vh;
-        margin: auto;
+        width: 100%;
         
     }
     #section3 .inner h2{
@@ -789,7 +700,7 @@ div.btn.btn--black{
 
 
     /* ============TAB-footer============ */
-    
+    #section4{display: none;}
 
     #section3 footer{
         display: block;
@@ -867,7 +778,6 @@ div.btn.btn--black{
         right: 0;
         bottom: 0; */
     }
-    #section3 footer{display: none;}
 
 
 
@@ -887,15 +797,19 @@ div.btn.btn--black{
     #section0 {
         background: url(../images/bg/pc-bg.png) center;
         background-size: cover;
+
     }
+
     #section1 {
         background: url(../images/bg/pc-bg-blue.png) center;
         background-size: cover;
     }
+
     #section2 {
         background: url(../images/bg/pc-bg.png) center;
         background-size: cover;
     }
+
     #section3 {
         background: url(../images/bg/pc-bg-black.png) center;
         background-size: cover;
@@ -913,11 +827,11 @@ div.btn.btn--black{
         justify-content: center;
     }
     .inner{
-        width: 100%;
+        width: 1350px;
         height: 90px;
         /* background-color: royalblue; */
         position: relative;
-        margin: 0 11%;
+
     }
     header h1{
         padding: 35px 0;
@@ -1100,18 +1014,10 @@ div.btn.btn--black{
 
 
     /* ============PC-about me============ */
-    #section3 footer{display: block;}
-    #section4 {display: none;}
     #section3 img.pc-about{display: block;}
     #section3 .about-img img.tab-about{display: none;}
     #section3 .about-img{display: none; background-color:#F81857;}
 
-    #section3 .inner{
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        margin: auto;    
-    }
     #section3 .about-box{
         width: 1300px; /*적용안됨*/
         height: auto;

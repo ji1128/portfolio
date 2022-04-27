@@ -5,18 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>김현지 웹퍼블리셔 포트폴리오</title>
 
     <!-- 브라우저 초기화 reset -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset@1.5.1/css/reset.min.css">
+    <!-- reset -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- full page css -->
     <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+    <!-- css -->
     <link rel="stylesheet" href="css/index.css">
 
 
     <script src="js/easings.min.js"></script>
+    <!-- js -->
     <script defer src="js/main.js"></script>
-    <script defer src="js/main-1.js"></script>
+    <!-- full page scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"></script>
+    <!-- full page js -->
     <script type="text/javascript" src="js/fullpage.min.js"></script>
+    <!-- jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
@@ -82,7 +90,7 @@
                     <h1>WELCOME <br>TO<br>MY PORTFOLIO</h1>
 
                     <h3 class="txt"></h3>
-                    
+
                     <div class="introduction">
                         <span>${ </span>
                         <div class="intro-txt">
@@ -99,48 +107,45 @@
             </div>
         </div>
 
-        <div class="section" id="section1">
-            <div class="inner">
-                <h1>${ PORTFOLIO }</h1>
-                <div class="content-box">
-                    <div>
-                        <a href="#">
-                            <img src="images/photo/pc-a'ddict.png" alt="a'ddict">
-                            <h4>RESPONSIVE Clone Coding</h4>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <img src="images/photo/pc-starbucks.png" alt="a'ddict">
-                            <h4>Clone Coding</h4>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <img src="images/photo/pc-sephora.png" alt="a'ddict">
-                            <h4>Clone Coding</h4>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <h4>Project</h4>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <h4>REACT</h4>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <img src="images/photo/pc-plantlife.png" alt="a'ddict">
-                            <h4>UX/UI Design</h4>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <h4>OTHER DESIGN</h4>
-                        </a>
+        <div class="section fp-noscroll " id="section1">
+            <div class="fp-auto-height-responsive fp-auto-height">
+                <div class="scrollable-content scroolBar">
+                    <div class="inner">
+                        <h2>${ PORTFOLIO }</h2>
+                        <div class="content-box">
+                            <ul>
+                                <li class="list-ad" onclick="location.href='./portfolio01_Ad.html'">
+                                    <div class="img-cont"></div>
+                                    <div class="hover-box"></div>
+                                    <h4>A'ddict<br>RESPONSIVE Clone Coding</h4>
+                                </li>
+                                <li class="list-st" onclick="location.href='./portfolio01_Ad.html'">
+                                    <div class="img-cont"></div>
+                                    <div class="hover-box"></div>
+                                    <h4>STARBUCKS<br>Clone Coding</h4>
+                                </li>
+                                <li class="list-sp" onclick="location.href='./portfolio01_Ad.html'">
+                                    <div class="img-cont"></div>
+                                    <div class="hover-box"></div>
+                                    <h4>SEPHORA<br>Clone Coding</h4>
+                                </li>
+                                <li class="list-react" onclick="location.href='./portfolio01_Ad.html'">
+                                    <div class="img-cont"></div>
+                                    <div class="hover-box"></div>
+                                    <h4 class="only-txt">REACT<br>projects</h4>
+                                </li>
+                                <li class="list-uxui" onclick="location.href='./portfolio01_Ad.html'">
+                                    <div class="img-cont"></div>
+                                    <div class="hover-box"></div>
+                                    <h4>PlantLife<br>UX/UI Design</h4>
+                                </li>
+                                <li class="list-od" onclick="location.href='./portfolio01_Ad.html'">
+                                    <div class="img-cont"></div>
+                                    <div class="hover-box"></div>
+                                    <h4  class="only-txt">OTHER<br>DESIGN</h4>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -356,6 +361,7 @@
 
     <script type="text/javascript">
         var myFullpage = new fullpage('#fullpage', {
+            licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
             //이동
             menu: '#menu',
             anchors: ['firstPage', 'secondPage'],
@@ -365,9 +371,19 @@
             showActiveTooltip: false,
             slidesNavigation: false,
             slidesNavPosition: 'bottom',
+            credits: {
+                enabled: false,
+                label: 'Made with',
+                position: 'right'
+            },
 
             //스크롤
             scrollingSpeed: 1200, //스크롤 속도
+            scrollOverflow: true, //요소 높이가 높을 때
+            normalScrollElements: '.scrollable-content', //일반 스크롤 요소 사용
+
+            autoScrolling: true,
+            scrollHorizontally: true,
 
             //디자인
             sectionsColor: ['#E1DFDD'], //세션 컬러
@@ -382,6 +398,7 @@
                     $('#section2 h3').show();
                 }
             },
+
             afterRender: function () {},
             afterResize: function (width, height) {},
             afterReBuild: function () {},

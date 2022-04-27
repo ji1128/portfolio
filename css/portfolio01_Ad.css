@@ -1,0 +1,863 @@
+@charset "UFT-8";
+
+Body{background: #F3F3F3;} /* 배경색 */
+
+/* ============MO-header============ */
+
+/* pc-menu 숨기기 */
+#gnb-pc{display: none;}
+
+header {
+    width: 100%;
+    height: 55px;
+    /* background-color: blueviolet; */
+    position: fixed;
+    
+    /*상단고정*/
+    order: 1;
+    z-index: 10;
+}
+header h1{
+    display: flex;
+    align-items: center;
+    padding: 20px 0 0 25px;
+    font-size: 15px;
+    color: #000;
+}
+header h1 a{letter-spacing:1px}
+
+/* menu-toggle-btn */
+.menu-toggle-btn{
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 16px;
+    right: 18px;
+    z-index: 200;
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+    box-sizing: border-box;
+    /* margin: 10px 0 0 0 ; */
+    /* background-color: greenyellow; */
+}
+
+.menu-toggle-btn > div{
+    width: 27px;
+    height: 1.7px;
+    border-radius: 2px;
+    background-color: #000;
+    margin: 5px 0; /*상하좌우 벌려주기*/
+}
+
+/* 햄버거 버튼 -> X모양 */
+.menu-toggle-btn.active #one{
+    transform: translateY(6.5px) rotate(-150deg);
+    transition: all 0.6s ease-in-out;
+    background-color: #fff;
+}
+.menu-toggle-btn.active #two{
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+}
+.menu-toggle-btn.active #three{
+    transform: translateY(-7px) rotate(-30deg);
+    transition: all 0.6s ease-in-out;
+    background-color: #fff;
+}
+
+/* menu 뒷배경 */
+.mo-menu-box{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba( 000, 000, 000, 0.8);
+    z-index: 8; 
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+}
+.mo-menu-box.show{
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.6s ease-in-out;
+}
+/* mo-menu-------------- */
+#gnb-mo.show{
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.6s ease-in-out;
+}
+#gnb-mo{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+
+    overflow: hidden;
+}
+#gnb-mo ul li{
+    margin: 22px 0;
+}
+#gnb-mo ul li:first-child{
+    margin: 0px 0 22px;
+}
+/* menu 글자색상 */
+#gnb-mo ul li a{
+    color: #fff;
+    font-size: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    
+}
+#gnb-mo ul li a::after{
+    position: absolute;
+    content:"";
+    display: block;
+    border-bottom: 3px solid #fff;
+    transition: width 0.3s ease-out;
+    left: auto; right: 0; width: 0;
+}
+#gnb-mo ul li a:hover p::after{
+    width: 100%; left: 0; right: auto;
+}
+
+/* #gnb-mo ul li a:hover{
+    text-decoration: underline;
+    text-underline-position:under;
+    
+} */
+
+/* link 버튼--------------- */
+#gnb-mo ul li.link{
+    float: left;
+    margin: 18px 7px 50px;
+}
+#gnb-mo ul li.link a:hover{
+    text-decoration: none;
+}
+div.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 145px;
+    height: 55px;
+    border: 1px solid #fff;
+    font-size: 35px;
+    font-weight: 100;
+    /* transition: all 0.3s ease-in-out; */
+    border-radius: 100px;
+    color: #fff;
+}
+div.btn.btn--white{
+    background-color: #fff;
+    color: #000;
+}
+div.btn.btn--black{
+    width: 113px;
+}
+
+
+/* Mo-content======================== */
+.content{
+    width: 100%;height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.content .inner{
+    width: 75%;
+    height: 80vh;
+    /* background-color: antiquewhite; */
+    margin: auto;
+    overflow-y: auto; /*스크롤바*/
+}
+/* 스크롤바 투명 */
+.scroolBar::-webkit-scrollbar {
+    display: none;
+}
+
+/* 이미지 img------------------------ */
+
+.pf-img{
+    width: 90%;
+    height: 180px;
+    background: url(../images/site-img/addict.png) no-repeat center;
+    background-size: cover;
+    margin: 30px auto 15px;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* head-title---------------------- */
+.pf-head-title{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.pf-head-title p{font-weight: 100;letter-spacing: 1.1px;}
+.pf-head-title p:first-child{
+    font-size: 8px;
+    padding: 0 4px 0 0;
+}
+.pf-head-title p:last-child{
+    font-size: 12px;
+}
+
+
+/* pf-title------------------------ */
+.txt-container{width: 87%;margin: auto;}
+
+.pf-title{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+}
+.pf-title h2{
+    font-size: 6vw;
+    font-weight: 900;
+}
+.pf-title span{
+    font-weight: 100;
+    font-size: 13px;
+    padding: 0 0 5px 6px ;
+}
+
+/* pf-txt------------------------- */
+.pf-txt{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+/* txt-group */
+.pf-txt .txt-group{line-height: 1;}
+.pf-txt .txt-group p{
+    font-size: 13px;
+    color: #121212;
+    margin-top: 3px;
+}
+.pf-txt .txt-group span{
+    font-size: 10px;
+    font-weight: 100;
+    color: #494949;
+}
+.pf-txt .txt-group span:last-child{
+    display: block;
+    width: 45px;
+    height: 1px;
+    background-color: #636363;
+    margin: 17px 0 10px;
+}
+
+/* txt-use */
+.pf-txt ul{
+    display: flex;
+    align-items: center; /* slash(/)가운데 배치 */
+    padding: 7px 0;
+}
+.pf-txt ul li{
+    float: left;
+    font-size: 13px;
+    font-weight: 700;
+}
+.pf-txt ul li span, .pf-txt .txt-page span{
+    font-size: 11px;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.pf-txt ul li.slash{
+    font-size: 22px;
+    padding: 0 9px 0 7px;
+    color: #7D7D7D;
+}
+
+.pf-txt .txt-page{padding: 7px 0;}
+.pf-txt .txt-page p{
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* btn--------------------------- */
+
+.txt-btn{margin: 20px 0;}
+.txt-btn .btn-top, .txt-btn .btn-bottom{
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 5px 0;
+}
+.txt-btn input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 3px 10px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    margin: 0 13px 0 -8px; /* input 버튼 좌우 간격*/
+
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+
+    transition: all 0.5s ease-in-out;
+}
+/* btn-hover 효과 */
+.txt-btn input:hover{
+    color: #fff;
+    background: #000;
+}
+
+.txt-btn .btn-bottom a{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-left: 5px; /*버튼 좌우 간격*/
+}
+.txt-btn .btn-bottom a div{
+    padding: 3px 7px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px #7D7D7D;
+    font-size: 13px;
+    transition: all 0.5s ease-in-out;
+
+    font-weight: 900;
+}
+.txt-btn .btn-bottom a:hover div{
+    background-color: #000;
+    color: #fff;
+
+}
+.txt-btn .btn-bottom a p{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 6px; /* report txt 왼쪽 간격*/
+    position: relative
+}
+
+/* btn-hover 밑줄효과 */
+.txt-btn .btn-bottom a p::after{
+    position: absolute;
+    content:"";
+    display: block;
+    border-bottom: 3px solid #000;
+    transition: width 0.3s ease-out;
+    left: auto; right: 0; width: 0;
+}
+.txt-btn .btn-bottom a:hover p::after{
+    width: 100%; left: 0; right: auto;
+}
+
+
+
+/* MO-other-projects======================= */
+/* other-pj */
+.content .other-pj{
+    width: 87%;
+    margin: 35px auto 0;
+}
+.content .other-pj > p{
+    /* Other Projects */
+    font-size: 17px;
+    font-weight: 900;
+    color: #494949;
+    margin: 10px 0;
+    letter-spacing: 0.8px;
+}
+
+.content .other-pj ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.content .other-pj ul li{
+    width: 49%;
+    height: 150px;
+    
+    position: relative; /*하위 이미지, txt 정렬*/
+    cursor: pointer;
+
+    background-size: contain;
+    background-color: #E1E1E1;
+    border-radius: 15px;
+    
+    margin-bottom: 1.5%;
+}
+.content .other-pj ul li.list{
+    /* 하단 이미지 세장 정렬 */
+    width: 32%;
+    height: 110px;
+}
+
+/* hover 효과 */
+.content ul li .hover-box{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8;
+
+    background: rgba(0,0,0,0.5);
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+}
+.content ul li:hover .hover-box{
+    opacity: 1;
+}
+
+/* other-pj 이미지----------- */
+.content .img-cont{
+    height: 150px;
+    background-size: contain;
+    background-color: #E1E1E1;
+    border-radius: 15px;
+    /* margin: 5px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content .img-cont.small-img{
+    height: 110px;
+    /* margin: 5px 4px; */
+}
+
+/* 개별 이미지 */
+.content .img-cont{padding: 5px;}
+.other-pj ul li.list-st .img-cont{
+    background: url(../images/site-img/pc-starbucks.png) no-repeat center;
+    background-size: cover;
+    background-color: #E1E1E1;
+    transition: all 0.5s ease-in-out;
+}
+.other-pj ul li.list-st:hover .img-cont{
+    background: url(../images/site-img/starbucks.png) no-repeat center;
+    background-size: cover;
+    background-color: #E1E1E1;
+    z-index: 9;
+}
+.other-pj ul li.list-sp .img-cont{
+    background: url(../images/site-img/pc-seohora.png) no-repeat center;
+    background-size: cover;
+    background-color: #E1E1E1;
+    transition: all 0.5s ease-in-out;
+}
+.other-pj ul li.list-sp:hover .img-cont{
+    background: url(../images/site-img/sephora.png) no-repeat center;
+    background-size: cover;
+    background-color: #E1E1E1;
+    z-index: 9;
+}
+
+.other-pj ul li.list-uxui .img-cont{
+    background: url(../images/site-img/tab-plantlife.png) no-repeat center;
+    background-size: cover;
+    background-color: #E1E1E1;
+}
+
+/* other-pj TXT */
+.other-pj ul li p{
+    position: absolute;
+    bottom: 0px;
+    left: 16px;
+    z-index: 10;
+    font-size: 12px;
+    color: #fff;
+
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    
+}
+.other-pj ul li:hover p{
+    /* other-pj hover 효과 */
+    opacity: 1;
+    bottom: 13px;
+
+}
+.other-pj ul li p.list-only-txt{
+    /* REACT / Other Design 텍스트 */
+    font-size: 3vw;
+    font-weight: 400;
+    margin: auto;
+    bottom: 0px;
+    left: 20px;
+    color: #fff;
+}
+.other-pj ul li:hover p.list-only-txt{
+    bottom: 16px;
+}
+
+
+
+
+/* ===============Tab=============== */
+@media all and (min-width:768px){
+    /* ============tab-header============ */
+    header{
+        height: 70px;
+    }
+    header h1{
+        font-size: 15px;
+        padding: 25px 0 0 25px;
+    }
+
+    /* menu-toggle-btn */
+    .menu-toggle-btn{
+        /* background-color: greenyellow; */
+        top: 22px;
+        right: 23px;
+    }
+
+    /* tab-menu---------------- */
+    #gnb-mo ul li{
+        margin: 30px 0;
+    }
+    #gnb-mo ul li:first-child{
+        margin: 0px 0 30px 0;
+    }
+    /* menu 글자색상 */
+    #gnb-mo ul li a{
+        font-size: 60px;
+    }
+    
+    /* link 버튼--------------- */
+    #gnb-mo ul li.link{
+        float: left;
+        margin: 20px 7px 70px;
+    }
+    #gnb-mo ul li.link a:hover{
+        text-decoration: none;
+    }
+    div.btn{
+        width: 170px;
+        height: 72px;
+        font-size: 42px;
+        font-weight: 100;
+        /* transition: all 0.3s ease-in-out; */
+    }
+    div.btn.btn--white{
+        background-color: #fff;
+        color: #000;
+    }
+    div.btn.btn--black{
+        width: 118px;
+    }
+
+
+    /* Mo-content======================== */
+
+    /* 이미지 img------------------------ */
+    .pf-img{
+        width: 90%;
+        height: 300px;
+        background: url(../images/site-img/addict.png) no-repeat center;
+        background-size: cover;
+        margin: 30px auto 15px;
+        border-radius: 15px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* head-title---------------------- */
+    .pf-head-title p:first-child{
+        font-size: 12px;
+        padding: 0 4px 0 0;
+    }
+    .pf-head-title p:last-child{
+        font-size: 14px;
+    }
+
+    /* pf-title------------------------ */
+    .pf-title span{
+        font-size: 18px;
+    }
+
+    /* pf-txt------------------------- */
+    /* txt-group */
+    .pf-txt .txt-group{line-height: 1.2;}
+    .pf-txt .txt-group p{
+        font-size: 14px;
+    }
+    .pf-txt .txt-group span{
+        font-size: 11px;
+    }
+
+    /* txt-use */
+    .pf-txt ul li{
+        float: left;
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .pf-txt ul li span, .pf-txt .txt-page span{
+        font-size: 13px;
+        font-weight: 100;
+        letter-spacing: 1px;
+        line-height: 1.8;
+    }
+    .pf-txt ul li.slash{
+        font-size: 23px;
+        padding: 0 12px 0 10px;
+        color: #7D7D7D;
+    }
+    
+    .pf-txt .txt-page{padding: 7px 0;}
+    .pf-txt .txt-page p{
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    /* btn--------------------------- */
+    .txt-btn input{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 10px 20px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        margin: 0 13px 0 -8px; /* input 버튼 좌우 간격*/
+
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+
+        transition: all 0.5s ease-in-out;
+}
+
+.txt-btn .btn-bottom a{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-left: 8px; /*버튼 좌우 간격*/
+}
+.txt-btn .btn-bottom a div{
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px #7D7D7D;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+}
+.txt-btn .btn-bottom a:hover div{
+    background-color: #000;
+    color: #fff;
+}
+.txt-btn .btn-bottom a p{
+    font-size: 17px;
+    font-weight: 400;
+    margin-left: 10px; /* report txt 왼쪽 간격*/
+    position: relative
+}
+
+
+
+
+
+}
+
+
+
+/* ===============PC=============== */
+@media all and (min-width:1200px){
+    /* ============PC-header============ */
+    #gnb-pc{display: flex;}
+    #gnb-mo, .menu-toggle-btn{display: none;}
+    
+    header{
+        width: 100%;
+        height: 90px;
+        /* background-color: violet; */
+        display: flex;
+        justify-content: center;
+    }
+    .inner{
+        width: 100%;
+        margin: 0 11%;
+        height: 90px;
+        /* background-color: royalblue; */
+        position: relative;
+    }
+    header h1{
+        padding: 35px 0;
+        font-size: 17px;
+    }
+        
+#gnb-pc{
+    position: absolute;
+    right: 0;
+    top: 35px;
+    }
+    #gnb-pc ul li{
+        float: left;
+        padding: 0 25px;
+    }
+    #gnb-pc ul li:nth-child(4){
+        padding: 0 30px;
+    }
+    #gnb-pc ul li a{
+        font-size: 17px;
+        letter-spacing: 0.5px;
+        color: #000;
+    }
+    #gnb-pc ul li a:hover{
+        text-decoration: underline;
+        text-underline-position:under;
+    }
+    #gnb-pc ul li.link{
+        padding: 0 13px;
+    }
+    #gnb-pc ul li:last-child{
+        padding: 0 0 0 13px;
+    }
+    #gnb-pc ul li.link a:hover{
+        text-decoration: none;
+    }
+    
+    
+    /* link버튼---------------- */
+    div.btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 72px;
+        height: 26px;
+        border: 1px solid #000;
+        font-size: 17px;
+        font-weight: 100;
+        /* transition: all 0.3s ease-in-out; */
+        border-radius: 100px;
+        color: #000;
+    }
+    div.btn.btn--white{
+        background-color: #000;
+        color: #fff;
+    }
+    div.btn.btn--black{
+        width: 58px;
+    }
+
+    /* PC-content======================== */
+    .content .inner{
+        width: 100%;
+        height: 80vh;
+        margin: auto 11%;
+        overflow: scroll;
+
+        display: flex;
+        flex-wrap: wrap;
+        /* flex-flow: row wrap; */
+    }
+
+    /* head-title---------------------- */
+    .content .pf-head-title{width: 100%;}
+
+    /* 이미지 img------------------------ */
+    .content .pf-img{
+        width: 50%;
+        height: 64vh;
+        margin-top: 4%;
+    }
+
+    
+
+    /* pf-title------------------------ */
+    .content .right{width: 50%;}
+    .content .txt-container{
+        width: 100%;
+        padding: 0 5%;
+        margin-top: 4%;
+    }
+    .pf-title h2{
+        font-size: 4vw;
+    }
+    .pf-title span{
+        font-weight: 100;
+        font-size: 28px;
+        padding: 0 0 13px 10px ;
+    }
+
+    /* pf-txt------------------------- */
+    /* txt-group */
+    .pf-txt .txt-group p{font-size: 15px;}
+    .pf-txt .txt-group span{font-size: 12px;}
+    .pf-txt .txt-group span:last-child{width: 50px;}
+
+    /* txt-use */
+    .pf-txt ul{
+        padding: 7px 0;
+    }
+    .pf-txt ul li{font-size: 16px;}
+    .pf-txt ul li span, .pf-txt .txt-page span{font-size: 14px;}
+    .pf-txt ul li.slash{
+        font-size: 26px;
+        padding: 0 20px 0 18px;
+    }
+    .pf-txt .txt-page{padding: 11px 0;}
+    .pf-txt .txt-page p{font-size: 16px;}
+
+    /* btn--------------------------- */
+    .txt-btn input{
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 18px;
+    }
+    .txt-btn .btn-bottom a{
+        margin-left: 12px; /*버튼 좌우 간격*/
+    }
+
+    .txt-btn .btn-bottom a div{
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 22px;
+    }
+    .txt-btn .btn-bottom a p{
+        font-size: 20px;
+        margin-left: 12px; /* report txt 왼쪽 간격*/
+    }
+
+    /* PC-other-projects======================= */
+    .content .other-pj{
+        width: 87%;
+        margin: auto;
+    }
+    .content .other-pj ul{flex-flow: row nowrap;justify-content: center;}
+    .content .other-pj ul li, .other-pj ul li.list{width: 100/5%;margin: 0 01% 0 0;height: 110px;}
+    .other-pj ul li.list:last-child{margin: 0;}
+
+
+    /* other-pj 이미지----------- */
+    .content .other-pj ul li .img-cont{height: 110px;}
+    .other-pj ul li.list-uxui .img-cont{background-size: cover;}
+    .content .other-pj ul li .img-cont.small-img{height: 110px;}
+
+    /* other-pj TXT */
+    .other-pj ul li p.list-only-txt{
+        /* REACT / Other Design 텍스트 */
+        font-size: 1vw;
+        font-weight: 400;
+        margin: auto;
+
+        left: 15px;
+    }
+
+
+
+
+
+}
