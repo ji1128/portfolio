@@ -1,30 +1,20 @@
-// const menuToggleBtn = document.querySelector('.menu-toggle-btn');
-// const menuHide = document.getElementById('gnb-mo');
-// let isHideMenu = false;
-
-// menuToggleBtn.addEventListener('click', function () {
-//     isHideMenu = !isHideMenu;
-//     if (isHideMenu) {
-//         menuToggleBtn.classList.add('active');
-//         menuHide.classList.add('show');
-//     } else {
-//         menuToggleBtn.classList.remove('active');
-//         menuHide.classList.remove('show');
-//     }
-// });
-
 $(document).ready(function () {
-
     // mo-menu -----------------------------
-    $('.menu-toggle-btn').click(function () {
-        $('#gnb-mo').toggleClass('show');
-        $('.menu-toggle-btn').toggleClass('active');
-        $('.mo-menu-box').toggleClass('show');
+
+    // menu-toggle-btn 클릭하면 #gnb-mo 모바일 메뉴 나오게 함
+    $(function () {
+        $('.menu-toggle-btn').on('click', function (event) {
+            event.preventDefault();
+
+            $(this).toggleClass('active'); //햄버거메뉴에 class .active가 붙으면서 모양이 바뀜
+            $('.overlay').toggleClass('visible');
+            //모바일 메뉴에 .visible class를 붙여줌으로써 visibility: hidden;에서 visible이 되어 등장하게 됨
+        });
     });
-    $('.menu-toggle-btn.active').click(function () {
-        $('#gnb-mo').removeClass('show');
-        $('.menu-toggle-btn').removeClass('active');
-        $('.mo-menu-box').removeClass('show');
+    //li 클릭하면 #gnb-mo 모바일 메뉴 닫히게 함
+    //mobile 메뉴의 ul li 클릭 시 해당 section으로 이동하며, 메뉴를 노출 시켰던 .overlay class가 remove되면서 숨겨지게 됨
+    $('.hover-line').click(function () {
+        $('.overlay').removeClass('visible');
     });
 
     // intro -----------------------------
@@ -33,11 +23,12 @@ $(document).ready(function () {
     let n = 0;
 
     const typing = function () {
-        txt.innerHTML += content[n++]; //.txt엘리먼트에 위에 content의 변수에 저장한 문자를 순차적으로 뿌리겠다.
+        txt.innerHTML += content[n++]; //.txt엘리먼트에 위에 content의 변수에 저장한 문자를 순차적으로 뿌려줌
         if (n > content.length) { // content의의 변수 길이가 넘으면 제안을 설정한다.
-            txt.innerHTML = ''; // .txt엘리먼트에 위에 빈문자를 뿌리겠다.
-            n = 0; // n번째를 0으로 초기화 하겠다.
+            txt.innerHTML = ''; // .txt엘리먼트에 위에 빈문자가 뿌려짐
+            n = 0; // 동시에 n번째를 0으로 초기화 됨
         }
+        //content[i++]를 이용하여 한 글자씩 더해주고, if문을 사용하여 전체 콘텐츠 길이보다 i가 커지게되면 콘텐츠를 비우고 i를 0으로 만드는 방법으로 타이핑이 반복되게 함
     };
 
     setInterval(typing, 200);
@@ -51,17 +42,18 @@ $(document).ready(function () {
         $skillCoding = $("#section2 .left .coding-box .skill span");
     $skillDesign = $("#section2 .left .design-box .skill span");
 
+    //skill을 담은 span태그 에 hover하면 right박스에 저장한 문자 중 해당하는 문자를 뿌려줌
     $skillCoding.hover(function () {
         var i = $(this).index();
         console.log(i);
 
-        $("#section2 .right div h2").text($gauge[i])
-        $(this).css("text-decoration", "underline");
+        $("#section2 .right div h2").text($gauge[i]);//문자가 뿌려지는 곳
+        $(this).css("text-decoration", "underline");//hover할 시 나타날 효과
     }, function () {
-        $(this).css("text-decoration", "");
+        $(this).css("text-decoration", "");//hover하지 않았을 때 상태
     });
 
-    // design-skill
+    // design-skill (위의 코드 반복)
     var $gauge2 = [
             "85", "85", "95"
         ],
@@ -82,7 +74,12 @@ $(document).ready(function () {
     // skill -----------------------------
 
     // skill -----------------------------
-
+    // 메인에서 상단이동
+    $('#btnGoTop').click(function () {
+        //$.fn.fullpage.setScrollingSpeed(0); 효과를 없애고싶을때
+        $.fn.fullpage.moveTo(1, 1); // 이동하고싶은 페이지
+        //$.fn.fullpage.setScrollingSpeed(700); 효과를 없애고싶을때
+    });
 
 
 })

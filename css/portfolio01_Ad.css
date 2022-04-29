@@ -2,7 +2,7 @@
 
 Body{background: #F3F3F3;} /* 배경색 */
 
-/* ============MO-header============ */
+/* ===================MO-header=================== */
 
 /* pc-menu 숨기기 */
 #gnb-pc{display: none;}
@@ -10,7 +10,6 @@ Body{background: #F3F3F3;} /* 배경색 */
 header {
     width: 100%;
     height: 55px;
-    /* background-color: blueviolet; */
     position: fixed;
     
     /*상단고정*/
@@ -37,8 +36,6 @@ header h1 a{letter-spacing:1px}
     cursor: pointer;
     transition: all 0.6s ease-in-out;
     box-sizing: border-box;
-    /* margin: 10px 0 0 0 ; */
-    /* background-color: greenyellow; */
 }
 
 .menu-toggle-btn > div{
@@ -47,9 +44,11 @@ header h1 a{letter-spacing:1px}
     border-radius: 2px;
     background-color: #000;
     margin: 5px 0; /*상하좌우 벌려주기*/
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 /* 햄버거 버튼 -> X모양 */
+/* .active class가 붙었을 때 바뀌는 모양 지정 */
 .menu-toggle-btn.active #one{
     transform: translateY(6.5px) rotate(-150deg);
     transition: all 0.6s ease-in-out;
@@ -65,27 +64,27 @@ header h1 a{letter-spacing:1px}
     background-color: #fff;
 }
 
-/* menu 뒷배경 */
-.mo-menu-box{
+/* menu 뒷배경--------------------------------- */
+.overlay{
     width: 100%;
-    height: 100vh;
+    height: 0;
     background-color: rgba( 000, 000, 000, 0.8);
     z-index: 8; 
     position: fixed;
+    top: 0;left: 0;right: 0;
     opacity: 0;
+    /* 보이지는 않지만 화면에 공간이 유지되는 visibility 기능으로 숨겨줌 */
     visibility: hidden;
+    transition: 0.3s;
 }
-.mo-menu-box.show{
-    visibility: visible;
+.overlay.visible{
+    height: 100%;
     opacity: 1;
-    transition: all 0.6s ease-in-out;
-}
-/* mo-menu-------------- */
-#gnb-mo.show{
     visibility: visible;
-    opacity: 1;
-    transition: all 0.6s ease-in-out;
 }
+
+
+/* mo-menu--------------------------------- */
 #gnb-mo{
     width: 100%;
     height: 100vh;
@@ -94,8 +93,8 @@ header h1 a{letter-spacing:1px}
     align-items: center;
     text-align: center;
     z-index: 9;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
 
     overflow: hidden;
 }
@@ -105,7 +104,16 @@ header h1 a{letter-spacing:1px}
 #gnb-mo ul li:first-child{
     margin: 0px 0 22px;
 }
-/* menu 글자색상 */
+/* mo-menu fadeIn 효과------- */
+@keyframes fadeInTop{
+    0% { opacity: 0; transform: translatey(-25%);}
+    100% { opacity: 1; transform: translatey(0);}
+}
+  /* 등장 시 y축으로 -25%에서 0으로 위에서 아래로 이동하며 fadein되게 함  */
+.overlay.visible li{
+    animation: fadeInTop 0.3s ease forwards;
+}
+/* menu 글자색상------- */
 #gnb-mo ul li a{
     color: #fff;
     font-size: 50px;
@@ -114,16 +122,18 @@ header h1 a{letter-spacing:1px}
     position: relative;
     
 }
-#gnb-mo ul li a::after{
+/* menu hover 밑줄효과------- */
+#gnb-mo ul li.hover-line a::after{
     position: absolute;
     content:"";
     display: block;
     border-bottom: 3px solid #fff;
+    /* width를 0에서 hover하면 0.3초만에 100%로 변하도록 설정 */
+    width: 0;
     transition: width 0.3s ease-out;
-    left: auto; right: 0; width: 0;
 }
-#gnb-mo ul li a:hover p::after{
-    width: 100%; left: 0; right: auto;
+#gnb-mo ul li a.hover-line:hover p::after{
+    width: 100%; 
 }
 
 /* #gnb-mo ul li a:hover{
@@ -132,10 +142,10 @@ header h1 a{letter-spacing:1px}
     
 } */
 
-/* link 버튼--------------- */
+/* 바로가기 버튼--------------------------------- */
 #gnb-mo ul li.link{
     float: left;
-    margin: 18px 7px 50px;
+    margin: 18px 10px 50px;
 }
 #gnb-mo ul li.link a:hover{
     text-decoration: none;
@@ -149,7 +159,7 @@ div.btn{
     border: 1px solid #fff;
     font-size: 35px;
     font-weight: 100;
-    /* transition: all 0.3s ease-in-out; */
+    transition: all 0.3s ease-in-out;
     border-radius: 100px;
     color: #fff;
 }
@@ -160,9 +170,13 @@ div.btn.btn--white{
 div.btn.btn--black{
     width: 113px;
 }
+/* btn효과-------- */
+div.btn:hover{
+    transform: scale(1.2); /*scale로 hover시 btn 커짐*/
+}
 
 
-/* Mo-content======================== */
+/* ========================Mo-content======================== */
 .content{
     width: 100%;height: 100vh;
     display: flex;
@@ -170,9 +184,8 @@ div.btn.btn--black{
 }
 
 .content .inner{
-    width: 75%;
+    width: 82%;
     height: 80vh;
-    /* background-color: antiquewhite; */
     margin: auto;
     overflow-y: auto; /*스크롤바*/
 }
@@ -186,7 +199,6 @@ div.btn.btn--black{
 .pf-img{
     width: 90%;
     height: 180px;
-    background: url(../images/site-img/addict.png) no-repeat center;
     background-size: cover;
     margin: 30px auto 15px;
     border-radius: 15px;
@@ -194,7 +206,16 @@ div.btn.btn--black{
     display: flex;
     justify-content: center;
     align-items: center;
+}s
+.pf-img.addict{
+    background: url(../images/site-img/addict.png) no-repeat center;
 }
+.pf-img.starbucks{
+    background: url(../images/site-img/starbucks.png) no-repeat center;
+}
+.pf-img{}
+.pf-img{}
+
 
 
 
@@ -214,7 +235,7 @@ div.btn.btn--black{
 
 
 /* pf-title------------------------ */
-.txt-container{width: 87%;margin: auto;}
+.txt-container{width: 85%;margin: auto;}
 
 .pf-title{
     display: flex;
@@ -239,15 +260,15 @@ div.btn.btn--black{
     flex-flow: column wrap;
 }
 
-/* txt-group */
+/* 브랜드 타입------- */
 .pf-txt .txt-group{line-height: 1;}
 .pf-txt .txt-group p{
-    font-size: 13px;
+    font-size: 8px;
     color: #121212;
-    margin-top: 3px;
+    margin-top: 5px;
 }
 .pf-txt .txt-group span{
-    font-size: 10px;
+    font-size: 6px;
     font-weight: 100;
     color: #494949;
 }
@@ -259,7 +280,7 @@ div.btn.btn--black{
     margin: 17px 0 10px;
 }
 
-/* txt-use */
+/* TXT - 사용기술 등-------  */
 .pf-txt ul{
     display: flex;
     align-items: center; /* slash(/)가운데 배치 */
@@ -267,29 +288,32 @@ div.btn.btn--black{
 }
 .pf-txt ul li{
     float: left;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 700;
+    
 }
 .pf-txt ul li span, .pf-txt .txt-page span{
-    font-size: 11px;
+    font-size: 7px;
     font-weight: 100;
     letter-spacing: 1px;
 }
 .pf-txt ul li.slash{
-    font-size: 22px;
+    font-size: 20px;
     padding: 0 9px 0 7px;
     color: #7D7D7D;
 }
 
+/* 페이지구성------- */
 .pf-txt .txt-page{padding: 7px 0;}
 .pf-txt .txt-page p{
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 700;
+    line-height: 0.5;
 }
+.pf-txt .txt-page span{font-size: 7px;}
 
 
-/* btn--------------------------- */
-
+/* 페이지 바로가기 btn--------------------------- */
 .txt-btn{margin: 20px 0;}
 .txt-btn .btn-top, .txt-btn .btn-bottom{
     display: flex;
@@ -312,12 +336,11 @@ div.btn.btn--black{
 
     transition: all 0.5s ease-in-out;
 }
-/* btn-hover 효과 */
+/* btn-hover 효과------- */
 .txt-btn input:hover{
     color: #fff;
     background: #000;
 }
-
 .txt-btn .btn-bottom a{
     display: flex;
     flex-flow: row nowrap;
@@ -346,14 +369,17 @@ div.btn.btn--black{
     position: relative
 }
 
-/* btn-hover 밑줄효과 */
+/* btn-hover 밑줄효과------- */
 .txt-btn .btn-bottom a p::after{
     position: absolute;
     content:"";
     display: block;
     border-bottom: 3px solid #000;
-    transition: width 0.3s ease-out;
-    left: auto; right: 0; width: 0;
+    /* width를 0에서 hover하면 0.3초만에 100%로 변하도록 설정 */
+    width: 0;
+    transition: width 0.3s ease-in-out; 
+    left: auto; right: 0;
+    /* left: auto, hover시 right:auto 설정 시 왼쪽에서 시작해서 오른쪽에서 끝나는게 반복됨 */
 }
 .txt-btn .btn-bottom a:hover p::after{
     width: 100%; left: 0; right: auto;
@@ -361,12 +387,12 @@ div.btn.btn--black{
 
 
 
-/* MO-other-projects======================= */
-/* other-pj */
+/* =======================MO-other-projects======================= */
 .content .other-pj{
     width: 87%;
     margin: 35px auto 0;
 }
+/* 제목--------------------------------- */
 .content .other-pj > p{
     /* Other Projects */
     font-size: 17px;
@@ -376,6 +402,7 @@ div.btn.btn--black{
     letter-spacing: 0.8px;
 }
 
+/* list--------------------------------- */
 .content .other-pj ul{
     display: flex;
     flex-flow: row wrap;
@@ -393,6 +420,7 @@ div.btn.btn--black{
     border-radius: 15px;
     
     margin-bottom: 1.5%;
+    overflow: hidden;
 }
 .content .other-pj ul li.list{
     /* 하단 이미지 세장 정렬 */
@@ -400,7 +428,7 @@ div.btn.btn--black{
     height: 110px;
 }
 
-/* hover 효과 */
+/* 배경 hover 효과------- */
 .content ul li .hover-box{
     width: 100%;
     height: 100%;
@@ -419,7 +447,7 @@ div.btn.btn--black{
     opacity: 1;
 }
 
-/* other-pj 이미지----------- */
+/* other-pj 이미지--------------------------------- */
 .content .img-cont{
     height: 150px;
     background-size: contain;
@@ -436,7 +464,7 @@ div.btn.btn--black{
     /* margin: 5px 4px; */
 }
 
-/* 개별 이미지 */
+/* 개별 이미지------- */
 .content .img-cont{padding: 5px;}
 .other-pj ul li.list-st .img-cont{
     background: url(../images/site-img/pc-starbucks.png) no-repeat center;
@@ -444,43 +472,49 @@ div.btn.btn--black{
     background-color: #E1E1E1;
     transition: all 0.5s ease-in-out;
 }
-.other-pj ul li.list-st:hover .img-cont{
+/* .other-pj ul li.list-st:hover .img-cont{
     background: url(../images/site-img/starbucks.png) no-repeat center;
     background-size: cover;
     background-color: #E1E1E1;
     z-index: 9;
-}
+} */
 .other-pj ul li.list-sp .img-cont{
     background: url(../images/site-img/pc-seohora.png) no-repeat center;
     background-size: cover;
     background-color: #E1E1E1;
     transition: all 0.5s ease-in-out;
 }
-.other-pj ul li.list-sp:hover .img-cont{
+/* .other-pj ul li.list-sp:hover .img-cont{
     background: url(../images/site-img/sephora.png) no-repeat center;
     background-size: cover;
     background-color: #E1E1E1;
     z-index: 9;
-}
+} */
 
 .other-pj ul li.list-uxui .img-cont{
     background: url(../images/site-img/tab-plantlife.png) no-repeat center;
     background-size: cover;
     background-color: #E1E1E1;
+    transition: all 0.5s ease-in-out;
 }
 
-/* other-pj TXT */
+/* 이미지 hover효과 ------- */
+.other-pj ul li:hover .img-cont{
+    transform: scale(1.2); /* scaler값을 주어 hover 시 이미지 확대*/
+}
+
+
+/* TXT & TXT hover효과--------------------------------- */
 .other-pj ul li p{
     position: absolute;
     bottom: 0px;
-    left: 16px;
+    left: 8px;
     z-index: 10;
     font-size: 12px;
     color: #fff;
 
     opacity: 0;
-    transition: all 0.4s ease-in-out;
-    
+    transition: all 0.4s ease-in-out; 
 }
 .other-pj ul li:hover p{
     /* other-pj hover 효과 */
@@ -494,7 +528,7 @@ div.btn.btn--black{
     font-weight: 400;
     margin: auto;
     bottom: 0px;
-    left: 20px;
+    left: 10px;
     color: #fff;
 }
 .other-pj ul li:hover p.list-only-txt{
@@ -673,9 +707,10 @@ div.btn.btn--black{
 
 
 
-/* ===============PC=============== */
+/* ========================PC======================== */
 @media all and (min-width:1200px){
-    /* ============PC-header============ */
+    /* ===================PC-header=================== */
+    /* MO 메뉴 숨기기 */
     #gnb-pc{display: flex;}
     #gnb-mo, .menu-toggle-btn{display: none;}
     
@@ -686,9 +721,9 @@ div.btn.btn--black{
         display: flex;
         justify-content: center;
     }
-    .inner{
+    header .inner{
         width: 100%;
-        margin: 0 11%;
+        margin: 0 3%;
         height: 90px;
         /* background-color: royalblue; */
         position: relative;
@@ -697,40 +732,54 @@ div.btn.btn--black{
         padding: 35px 0;
         font-size: 17px;
     }
-        
-#gnb-pc{
-    position: absolute;
-    right: 0;
-    top: 35px;
+    /* PC 메뉴--------------------------------- */
+    #gnb-pc{
+        position: absolute;
+        right: 0;
+        top: 35px;
     }
     #gnb-pc ul li{
         float: left;
-        padding: 0 25px;
+        margin: 0 25px;
+        position: relative;
     }
     #gnb-pc ul li:nth-child(4){
-        padding: 0 30px;
+        margin: 0 30px;
     }
     #gnb-pc ul li a{
         font-size: 17px;
         letter-spacing: 0.5px;
         color: #000;
     }
-    #gnb-pc ul li a:hover{
+    #gnb-pc ul li.hover-line a::after{
+        position: absolute;
+        content:"";
+        display: block;
+        border-bottom: 2px solid #000;
+        
+        /* width를 0에서 hover하면 0.3초만에 100%로 변하도록 설정 */
+        width: 0;
+        transition: width 0.3s ease-in-out;
+    }
+    #gnb-pc ul li.hover-line:hover a::after{
+        width: 100%; 
+    }
+    /* #gnb-pc ul li a:hover{
         text-decoration: underline;
         text-underline-position:under;
-    }
+    } */
+
+    /* PC 바로가기 버튼--------------------------------- */
     #gnb-pc ul li.link{
-        padding: 0 13px;
+        margin: 0 13px;
     }
     #gnb-pc ul li:last-child{
-        padding: 0 0 0 13px;
+        margin: 0 0 0 13px;
     }
     #gnb-pc ul li.link a:hover{
         text-decoration: none;
     }
     
-    
-    /* link버튼---------------- */
     div.btn{
         display: flex;
         justify-content: center;
@@ -740,7 +789,7 @@ div.btn.btn--black{
         border: 1px solid #000;
         font-size: 17px;
         font-weight: 100;
-        /* transition: all 0.3s ease-in-out; */
+        transition: all 0.4s ease-in-out;
         border-radius: 100px;
         color: #000;
     }
@@ -751,67 +800,78 @@ div.btn.btn--black{
     div.btn.btn--black{
         width: 58px;
     }
+    /* btn효과-------- */
+    div.btn:hover{
+        transform: scale(1.2); /*scale로 hover시 btn 커짐*/
+    }
 
-    /* PC-content======================== */
+    /* ===================PC-PORTFOLIO=================== */
     .content .inner{
         width: 100%;
-        height: 80vh;
+        height: 82vh;
         margin: auto 11%;
         overflow: scroll;
 
         display: flex;
         flex-wrap: wrap;
         /* flex-flow: row wrap; */
+        padding-top: 00px;
     }
 
-    /* head-title---------------------- */
-    .content .pf-head-title{width: 100%;}
+    /* head-title--------------------------------- */
+    .content .pf-head-title{
+        width: 100%;
+        height: auto;
+        padding-top: 40px;
+        /* background-color: aqua; */
+        /* position: absolute; */
+    }
 
-    /* 이미지 img------------------------ */
+    /* 이미지 img--------------------------------- */
     .content .pf-img{
         width: 50%;
-        height: 64vh;
-        margin-top: 4%;
+        height: 70vh;
+        background: url(../images/site-img/addict.png) no-repeat;
+        background-size: cover;
+        background-position: -50px center; /*x축 y축*/
     }
 
-    
-
-    /* pf-title------------------------ */
-    .content .right{width: 50%;}
+    /* portfolio-title--------------------------------- */
+    .content .right{width: 50%;margin: auto;}
     .content .txt-container{
         width: 100%;
         padding: 0 5%;
-        margin-top: 4%;
     }
     .pf-title h2{
         font-size: 4vw;
     }
     .pf-title span{
         font-weight: 100;
-        font-size: 28px;
+        font-size: 1.5vw;
         padding: 0 0 13px 10px ;
     }
 
-    /* pf-txt------------------------- */
-    /* txt-group */
-    .pf-txt .txt-group p{font-size: 15px;}
-    .pf-txt .txt-group span{font-size: 12px;}
+    /* porfolio-txt--------------------------------- */
+    /* 사용기술 & 사용프로그램 ------- */
+    .pf-txt .txt-group p{font-size: 12px;}
+    .pf-txt .txt-group span{font-size: 9px;}
     .pf-txt .txt-group span:last-child{width: 50px;}
 
-    /* txt-use */
+    /* 참여도 & 제작기간 & TPYE------- */
     .pf-txt ul{
         padding: 7px 0;
     }
-    .pf-txt ul li{font-size: 16px;}
-    .pf-txt ul li span, .pf-txt .txt-page span{font-size: 14px;}
+    .pf-txt ul li{font-size: 14px;}
+    .pf-txt ul li span, .pf-txt .txt-page span{font-size: 12px;}
     .pf-txt ul li.slash{
         font-size: 26px;
         padding: 0 20px 0 18px;
     }
-    .pf-txt .txt-page{padding: 11px 0;}
-    .pf-txt .txt-page p{font-size: 16px;}
+    .pf-txt .txt-page{padding: 5px 0;}
+    .pf-txt .txt-page p{font-size: 14px;}
+    .pf-txt .txt-page span{font-size: 12px;}
 
-    /* btn--------------------------- */
+    /* porfolio-btn--------------------------------- */
     .txt-btn input{
         padding: 15px 20px;
         border-radius: 50px;
@@ -831,22 +891,23 @@ div.btn.btn--black{
         margin-left: 12px; /* report txt 왼쪽 간격*/
     }
 
-    /* PC-other-projects======================= */
+    /* =======================PC-other-projects=================== */
     .content .other-pj{
         width: 87%;
         margin: auto;
     }
     .content .other-pj ul{flex-flow: row nowrap;justify-content: center;}
-    .content .other-pj ul li, .other-pj ul li.list{width: 100/5%;margin: 0 01% 0 0;height: 110px;}
+    .content .other-pj ul li, .other-pj ul li.list{width: 100/5%;margin: 0 01% 0 0;height: 100px;}
     .other-pj ul li.list:last-child{margin: 0;}
 
 
-    /* other-pj 이미지----------- */
-    .content .other-pj ul li .img-cont{height: 110px;}
-    .other-pj ul li.list-uxui .img-cont{background-size: cover;}
-    .content .other-pj ul li .img-cont.small-img{height: 110px;}
+    /* other-pj 이미지--------------------------------- */
+    .content .other-pj ul li.list{height: 100px;}
+    .content .other-pj ul li .img-cont{height: 100px;}
+    .other-pj ul li.list-uxui .img-cont{background-size: cover;height: 100px;}
+    .content .other-pj ul li .small-img{height: 100px;}
 
-    /* other-pj TXT */
+    /* other-pj TXT--------------------------------- */
     .other-pj ul li p.list-only-txt{
         /* REACT / Other Design 텍스트 */
         font-size: 1vw;

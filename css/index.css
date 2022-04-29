@@ -3,29 +3,28 @@
 /* =====================MO========================= */
 
 /* #section2 h3{display: none;} */
-
 #section0 {
-    background: url(../images/bg/mo-bg.png) center;
-    background-size: cover;
-
+    background: url(../images/bg/pc-bg.png) no-repeat;
+    background-position: left center;
+    background-size: auto;
 }
-
 #section1 {
-    background: url(../images/bg/mo-bg-blue.png) center;
+    background: url(../images/bg/pc-bg-blue.png) center;
+    background-position: left center;
     background-size: cover;
 }
-
 #section2 {
-    background: url(../images/bg/mo-bg.png) center;
+    background: url(../images/bg/pc-bg.png) center;
+    background-position: left center;
     background-size: cover;
 }
-
 #section3 {
-    background: url(../images/bg/mo-bg-black.png) center;
+    background: url(../images/bg/pc-bg-black.png) center;
+    background-position: left center;
     background-size: cover;
 }
 
-/* ============MO-header============ */
+/* ===================MO-header=================== */
 
 /* pc-menu 숨기기 */
 #gnb-pc{display: none;}
@@ -33,7 +32,6 @@
 header {
     width: 100%;
     height: 55px;
-    /* background-color: blueviolet; */
     position: fixed;
     
     /*상단고정*/
@@ -60,8 +58,6 @@ header h1 a{letter-spacing:1px}
     cursor: pointer;
     transition: all 0.6s ease-in-out;
     box-sizing: border-box;
-    /* margin: 10px 0 0 0 ; */
-    /* background-color: greenyellow; */
 }
 
 .menu-toggle-btn > div{
@@ -70,9 +66,11 @@ header h1 a{letter-spacing:1px}
     border-radius: 2px;
     background-color: #fff;
     margin: 5px 0; /*상하좌우 벌려주기*/
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 /* 햄버거 버튼 -> X모양 */
+/* .active class가 붙었을 때 바뀌는 모양 지정 */
 .menu-toggle-btn.active #one{
     transform: translateY(6.5px) rotate(-150deg);
     transition: all 0.6s ease-in-out;
@@ -88,27 +86,27 @@ header h1 a{letter-spacing:1px}
     background-color: #fff;
 }
 
-/* menu 뒷배경 */
-.mo-menu-box{
+/* menu 뒷배경--------------------------------- */
+.overlay{
     width: 100%;
-    height: 100vh;
+    height: 0;
     background-color: rgba( 000, 000, 000, 0.8);
     z-index: 8; 
     position: fixed;
+    top: 0;left: 0;right: 0;
     opacity: 0;
+    /* 보이지는 않지만 화면에 공간이 유지되는 visibility 기능으로 숨겨줌 */
     visibility: hidden;
+    transition: 0.3s;
 }
-.mo-menu-box.show{
-    visibility: visible;
+.overlay.visible{
+    height: 100%;
     opacity: 1;
-    transition: all 0.6s ease-in-out;
-}
-/* mo-menu-------------- */
-#gnb-mo.show{
     visibility: visible;
-    opacity: 1;
-    transition: all 0.6s ease-in-out;
 }
+
+
+/* mo-menu--------------------------------- */
 #gnb-mo{
     width: 100%;
     height: 100vh;
@@ -117,8 +115,8 @@ header h1 a{letter-spacing:1px}
     align-items: center;
     text-align: center;
     z-index: 9;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
 
     overflow: hidden;
 }
@@ -128,24 +126,48 @@ header h1 a{letter-spacing:1px}
 #gnb-mo ul li:first-child{
     margin: 0px 0 22px;
 }
-/* menu 글자색상 */
+/* mo-menu fadeIn 효과------- */
+@keyframes fadeInTop{
+    0% { opacity: 0; transform: translatey(-25%);}
+    100% { opacity: 1; transform: translatey(0);}
+}
+  /* 등장 시 y축으로 -25%에서 0으로 위에서 아래로 이동하며 fadein되게 함  */
+.overlay.visible li{
+    animation: fadeInTop 0.3s ease forwards;
+}
+/* menu 글자색상------- */
 #gnb-mo ul li a{
     color: #fff;
     font-size: 50px;
     font-weight: 700;
     transition: all 0.3s ease-in-out;
+    position: relative;
     
 }
-#gnb-mo ul li a:hover{
+/* menu hover 밑줄효과------- */
+#gnb-mo ul li.hover-line a::after{
+    position: absolute;
+    content:"";
+    display: block;
+    border-bottom: 3px solid #fff;
+    /* width를 0에서 hover하면 0.3초만에 100%로 변하도록 설정 */
+    width: 0;
+    transition: width 0.3s ease-out;
+}
+#gnb-mo ul li a.hover-line:hover p::after{
+    width: 100%; 
+}
+
+/* #gnb-mo ul li a:hover{
     text-decoration: underline;
     text-underline-position:under;
     
-}
+} */
 
-/* link 버튼--------------- */
+/* 바로가기 버튼--------------------------------- */
 #gnb-mo ul li.link{
     float: left;
-    margin: 18px 7px 50px;
+    margin: 18px 10px 50px;
 }
 #gnb-mo ul li.link a:hover{
     text-decoration: none;
@@ -159,7 +181,7 @@ div.btn{
     border: 1px solid #fff;
     font-size: 35px;
     font-weight: 100;
-    /* transition: all 0.3s ease-in-out; */
+    transition: all 0.3s ease-in-out;
     border-radius: 100px;
     color: #fff;
 }
@@ -170,57 +192,66 @@ div.btn.btn--white{
 div.btn.btn--black{
     width: 113px;
 }
+/* btn효과-------- */
+div.btn:hover{
+    transform: scale(1.2); /*scale로 hover시 btn 커짐*/
+}
 
 
-/* ============MO-intro============ */
+
+/* ===================MO-intro=================== */
 #section0{
     display: flex;
     align-items: center;
 }
 #section0 .inner{
-    width: 90%;
+    width: 100%;
     height: 100vh;
-    position: relative;
+    
     display: flex;
     justify-content: center;
     align-items: center;
 }
+#section0 .inner .intro{
+    width: 60%;
+    height: 45vh;
+    position: relative; /* 하위 컨텐츠 정렬 기준*/
+}
+/* 제목--------------------------------- */
 #section0 h1{
     font-size: 49px;
     color: #fff;
     font-weight: 900;
     letter-spacing: 1px;
-    
-    /* position: absolute;
-    top: 160px; */
 }
-/* 타이핑 효과------------ */
+/* 타이핑 효과--------------------------------- */
+/* 타이핑 커서 */
 @keyframes cursor {
     to {
-        border-color: transparent;
+        border-color: transparent; /* 투명해지는 효과가 반복되게 하여 깜빡이는 커서 느낌을 냄*/
     }
 }
 .txt {
-    display: table-cell;
+    display: table-cell; /*table-cell로 border-right를 줌*/
     vertical-align: middle;
-    border-right: 0.05em solid #F81857; 
-    animation: cursor 0.5s ease infinite;
+    border-right: 0.05em solid #F81857; /*타이핑 커서 색상*/
+    animation: cursor 0.5s ease infinite; /*위에서 지정한 cursor 키프레임 애니메이션을 반복해서 실행되게 함*/
 }
 #section0 .inner h3{
     color: #fff;
-    /* position: absolute;
-    top: 370px; */
+
     font-weight: 100;
     font-size: 23px;
 }
-
+/* 능력 소개--------------------------------- */
 #section0 .inner .introduction{
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
     margin: 30px 0 0 20px;
-    /* position: absolute;
-    bottom: 240px;
-    right: 0; */
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 #section0 .inner .introduction span{
     color: #dadada;
@@ -229,7 +260,7 @@ div.btn.btn--black{
     padding: 0 5px;
 }
 #section0 .inner .introduction ul{
-    padding: 25px 0 ;
+    padding: 0 7px ;
 }
 #section0 .inner .introduction ul li{
     color: #fff;
@@ -240,17 +271,20 @@ div.btn.btn--black{
     line-height: 1.2;
 }
 
-
-
-/* ============MO-PORTFOLIO============ */
+/* ===================MO-PORTFOLIO=================== */
 #section1{width: 100%;height: 100vh;}
-.scrollable-content{
+#section1 .scrollable-content{
     overflow-y: scroll;
     width: 85%;
     margin: 2% auto 0;
     height: 85vh;
+    
     background: rgba(255, 255, 255, 0.43);
     border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 내용물 가운데 배치 */
 }
 @media screen and (max-height: 300px) {
     .scrollable-content{
@@ -262,27 +296,28 @@ div.btn.btn--black{
     } */
 }
 
-/* scroolBar 꾸미기--------------- */
+/* scroolBar 꾸미기--------------------------------- */
 .scroolBar { 
-    overflow-y: scroll;
+    overflow-y: scroll; /* 박스보다 내용이 더 길 때 스크롤바 생성*/
 }
 .scroolBar::-webkit-scrollbar {
     width: 10px;  /* 스크롤바의 너비 */
 }
 .scroolBar::-webkit-scrollbar-thumb {
-    height: 30%; /* 스크롤바의 길이 */
-    background: #5E3C89; /* 스크롤바의 색상 */
+    height: 30%; /* 활성 스크롤바의 길이 */
+    background: #5E3C89; /* 활성 스크롤바의 색상 */
     border-radius: 10px;
 }
 .scroolBar::-webkit-scrollbar-track {
-    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+    background: rgba(33, 122, 244, 0.1);  /*스크롤바 뒷 배경 색상*/
 }
-
-/* scroolBar 안보이게하기 (투명) */
+/* scroolBar 스크롤바 안보이게하기 (투명) */
 /* .scroolBar::-webkit-scrollbar {
     display: none;
 } */
+
 #section1 .inner{width: 90%;margin: auto;}
+/* PORTFOLIO 제목 --------------------------------- */
 #section1 .inner h2{
     color: #fff;
     letter-spacing: 1px;
@@ -290,32 +325,68 @@ div.btn.btn--black{
     font-weight: 900;
     margin: 12px 0 15px;
 }
-/* portfolio-content ------------------- */
+/* PORTFOLIO-content --------------------------------- */
 #section1 .inner .content-box ul li{
     width: 100%;
     height: 150px;
-    background-color: #E1E1E1;
+    background-color: #f3f3f3;
     border-radius: 15px;
     margin: 10px 0;
-    position: relative; /*하위 이미지 & 텍스트 정렬*/
+    position: relative; /*하위 이미지 & 텍스트 정렬 기준*/
+    overflow: hidden; /*hover효과로 이미지 커질 시 넘치는 부분 안보이게*/
+    cursor: pointer;
 }
-
-/* 포트폴리오 이미지 */
+#section1 .inner .content-box ul li.list-blank{display: none;}
+/* 포트폴리오 이미지------- */
 #section1 .inner .content-box ul li .img-cont{
     width: 100%;
+    max-width: 100%;
     height: 150px;
     background-size: contain;
-    background-color: #E1E1E1;
     border-radius: 15px;
     /* margin: 5px; */
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    cursor: pointer;
 }
-/* 포트폴리오 이미지 효과 */
+/* 1) A'ddict */
+#section1 .inner .content-box ul li.list-ad .img-cont{
+    background: url(../images/site-img/pc-addict.png) no-repeat center;
+    background-size: contain;
+    transition: all 0.5s ease-in-out;
+}
+   /* 2) STARBUCKS */
+#section1 .inner .content-box ul li.list-st .img-cont{
+    background: url(../images/site-img/pc-starbucks.png) no-repeat center;
+    background-size: contain;
+    transition: all 0.5s ease-in-out;
+}
+/* 3) SEPHORA */
+#section1 .inner .content-box ul li.list-sp .img-cont{
+    background: url(../images/site-img/pc-seohora.png) no-repeat center;
+    background-size: contain;
+    transition: all 0.5s ease-in-out;
+}
+/* 4) REACT 작품란 */
+#section1 .inner .content-box ul li.list-react .img-cont{
+
+}
+/* 5) UXUI */
+#section1 .inner .content-box ul li.list-uxui .img-cont{
+    background: url(../images/site-img/tab-plantlife.png) no-repeat center;
+    background-size: contain;
+    transition: all 0.5s ease-in-out;
+}
+/* 6) DESIGN 작품란  */
+#section1 .inner .content-box ul li.list-od .img-cont{
+
+}
+
+/* 포트폴리오 이미지 효과------- */
+#section1 .inner .content-box ul li:hover .img-cont{
+    transform: scale(1.2); /* scaler값을 주어 hover 시 이미지 확대*/
+}
 #section1 .inner .content-box ul li .hover-box{
     width: 100%;
     height: 100%;
@@ -334,47 +405,27 @@ div.btn.btn--black{
 #section1 .inner .content-box ul li:hover .hover-box{
     opacity: 1;
 }
-#section1 .inner .content-box ul li.list-ad .img-cont{
-    background: url(../images/site-img/pc-addict.png) no-repeat center;
-    background-size: contain;
-    transition: all 0.5s ease-in-out;
-}
-#section1 .inner .content-box ul li.list-st .img-cont{
-    background: url(../images/site-img/pc-starbucks.png) no-repeat center;
-    background-size: contain;
-    transition: all 0.5s ease-in-out;
-}
-#section1 .inner .content-box ul li.list-sp .img-cont{
-    background: url(../images/site-img/pc-seohora.png) no-repeat center;
-    background-size: contain;
-    transition: all 0.5s ease-in-out;
-}
-#section1 .inner .content-box ul li.list-react .img-cont{
 
-}
-#section1 .inner .content-box ul li.list-uxui .img-cont{
-    background: url(../images/site-img/tab-plantlife.png) no-repeat center;
-    background-size: contain;
-    transition: all 0.5s ease-in-out;
-}
-#section1 .inner .content-box ul li.list-od .img-cont{
-
-}
-
-
+/* 이미지 TXT------ */
 #section1 .inner .content-box ul li h4{
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 0px; /* bottom 0에서부터 위로 올라오는 효과 */
+    left: 15px;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    opacity: 0; /* 가려져있다 보여지게함 */
+    z-index: 10;
+}
+#section1 .inner .content-box ul li h4.only-txt{
+    font-size: 25px;
 }
 
-
-
-
-
-
-
-
+/* 이미지 TXT 효과------- */
+#section1 .inner .content-box ul li:hover h4{
+    /* hover 시 bottom 0에서부터 12px로 txt가 이동하며 보여짐 */
+    bottom: 12px; 
+    opacity: 1;
+}
 
 
 
@@ -458,14 +509,13 @@ div.btn.btn--black{
 #section3 footer{display: none;}
 
 #section3 .inner{
-    width: 100%;
+    width: 85%;
     height: 100vh;
     overflow: hidden;
-
+    margin: auto;
     display: flex;
     justify-content: center;
-
-    flex-flow: column wrap;
+    flex-flow: column wrap; /*하위메뉴 세로, 여러줄 정렬*/
 }
 #section3 .inner h2{
     color: #fff;
@@ -478,10 +528,24 @@ div.btn.btn--black{
     width: 90%;
     position: relative;
     margin: 0 auto;
-    /* background-color: navy; */
+}
+/* 자기소개 박스--------------------------------- */
+#section3 .inner .introduction-container{
+    width: 100%;
+    padding: 10px 15px ;
+
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+}
+#section3 .inner .introduction-container p{
+    color: #fff;
+    font-size: 14px;
 }
 
+/* TXT 박스--------------------------------- */
 #section3 .inner .about-box-cont{
+    /* background-color: #F81857; */
     padding: 17px 15px 0;
 }
 #section3 .inner .about-box-cont h3{
@@ -492,6 +556,7 @@ div.btn.btn--black{
     position: relative;
 }
 #section3 .inner .about-box-cont h3::after{
+    /* 제목 옆 선 */
     display: block;
     content: "";
     width: 66%;
@@ -516,7 +581,7 @@ div.btn.btn--black{
 }
 #section3 .inner .about-box-cont ul li > p{
     width: 37%;
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 100;
     letter-spacing: 1px;
 }
@@ -528,11 +593,11 @@ div.btn.btn--black{
 
 #section3 .inner .about-box-cont ul li > div p:first-child{
     font-weight: 600;
-    font-size: 15px;
+    font-size: 13px;
 }
 #section3 .inner .about-box-cont ul li > div span{
     color: #C5C5C5;
-    font-size: 10px;
+    font-size: 9px;
     padding: 3px 0;
 }
 #section3 .inner .about-box-cont ul li.etc{
@@ -617,28 +682,7 @@ div.btn.btn--black{
 
 /* ===============Tab=============== */
 @media all and (min-width:768px) {
-
-    #section0 {
-        background: url(../images/bg/tab-bg.png) center;
-        background-size: cover;
-
-    }
-
-    #section1 {
-        background: url(../images/bg/tab-bg-blue.png) center;
-        background-size: cover;
-    }
-
-    #section2 {
-        background: url(../images/bg/tab-bg.png) center;
-        background-size: cover;
-    }
-
-    #section3 {
-        background: url(../images/bg/tab-bg-black.png) center;
-        background-size: cover;
-    }
-
+    #section1, #section3 {background-position: center;}
 
     /* ============tab-header============ */
     header{
@@ -691,9 +735,71 @@ div.btn.btn--black{
         width: 118px;
     }
 
+    /* ===================TAB-intro=================== */
+    #section0 .inner .intro{
+        width: 100%;
+        margin: 0 20%;
+        /* height: 50vh; */
+    }
+
+    /* ===================TAB-PORTFOLIO=================== */
+    #section1 .scrollable-content{
+        /* 정해진 height 길이 대신 padding 값으로 내용물 유동적이게 보여짐 */
+        height: auto;
+        padding: 3% 0;
+    }
+    #section1 .scroolBar::-webkit-scrollbar {
+        display: none; /*스크롤바 숨기기*/
+    }
+    /* PORTFOLIO-content --------------------------------- */
+    #section1 .inner .content-box ul{
+        display: flex;
+        flex-flow: row wrap; /*가로로 여러줄 배치*/
+        justify-content: space-between; /* 좌우 끝에 배치*/
+    }
+    /* 1) A'ddict */
+    #section1 .inner .content-box ul li.list-ad{
+        height: 300px;
+    }
+    #section1 .inner .content-box ul li.list-ad .img-cont{
+        width: auto;
+        height: 300px;
+    }
+    /* 2) STARBUCKS & 3) SEPHORA */
+    #section1 .inner .content-box ul li.list-st,
+    #section1 .inner .content-box ul li.list-sp{
+        width: 48.5%;
+        height: 200px;
+    }
+    #section1 .inner .content-box ul li.list-st .img-cont,
+    #section1 .inner .content-box ul li.list-sp .img-cont{
+        width: auto;
+        height: 200px;
+    }
+    /* 4) REACT 작품란 & 5) UXUI  & 6) DESIGN 작품란 */
+    #section1 .inner .content-box ul li.list-react,
+    #section1 .inner .content-box ul li.list-uxui,
+    #section1 .inner .content-box ul li.list-od{
+        width: 31.3%;
+        height: 170px;
+    }
+    #section1 .inner .content-box ul li.list-react .img-cont,
+    #section1 .inner .content-box ul li.list-uxui .img-cont,
+    #section1 .inner .content-box ul li.list-od .img-cont{
+        width: auto;
+        height: 200px;
+    }
+    /* 포트폴리오 이미지------ */
+    #section1 .inner .content-box ul li .img-cont{
+        width: auto;
+        height: 170px;
+        background-size: cover;
+    }
 
 
-    /* ============TAB-PORTFOLIO============ */
+
+
+
 
 
     /* ============TAB-skill============ */
@@ -735,16 +841,15 @@ div.btn.btn--black{
     }
 
 
-    /* ============TAB-about============ */
+    /* ===================TAB-about=================== */
     #section3 img.pc-about{display: none;}
     #section3 img.tab-about{display: block;}
 
     #section3 .inner{
         position: relative;
-        width: 80%;
-        height: 80vh;
+        width: 85%;
+        height: 65vh;
         margin: auto;
-        
     }
     #section3 .inner h2{
         margin-bottom: 80px;
@@ -755,9 +860,27 @@ div.btn.btn--black{
     #section3 .inner .arrange-box{
         margin: auto;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         flex-flow: row nowrap;
     }
+    /* 이미지 박스--------------------------------- */
+    #section3 .inner .about-introduction{}
+    #section3 .inner .about-img{
+        width: 220px;
+    }
+    #section3 .inner .about-img img{
+        display: block;
+    }
+
+    /* 자기소개 박스--------------------------------- */
+
+    #section3 .inner .introduction-container{
+        padding: 10px 0;
+        
+    }
+
+    /* TXT 박스--------------------------------- */
+
     #section3 .inner .about-container{
         display: flex;
         flex-flow: column wrap;
@@ -773,22 +896,14 @@ div.btn.btn--black{
     #section3 .inner .about-box-cont ul{padding: 20px 0;}
     #section3 .inner .about-box-cont ul li{padding: 8px 0;}
     #section3 .inner .about-box-cont ul li > p{font-size: 12px;}
-    #section3 .inner .about-box-cont ul li > div p:first-child{font-size: 19px;}
+    #section3 .inner .about-box-cont ul li > div p:first-child{font-size: 16px;}
     #section3 .inner .about-box-cont ul li > div span{font-size: 12px;}
     #section3 .inner .about-box-cont ul li.etc{font-size: 12px;padding: 15px 0 0;}
 
-    #section3 .inner .about-img{
-
-        width: 250px;
-        margin-right: 20px;
-    }
-    #section3 .inner .about-img img{
-        display: block;
-        margin-top: 20px;
-    }
 
 
-    /* ============TAB-footer============ */
+
+    /* ===================TAB-footer=================== */
     
 
     #section3 footer{
@@ -811,7 +926,7 @@ div.btn.btn--black{
         position: relative;
     }
     #section3 .footer-inner .contact-box{
-        width: 85%;
+        width: 89%;
         margin: 35px auto 0;
     }
     #section3 .footer-inner h3{
@@ -873,7 +988,7 @@ div.btn.btn--black{
 
 
 
-    /* ============TAB-skill============ */
+    /* ===================TAB-skill=================== */
 
 
 
@@ -882,7 +997,7 @@ div.btn.btn--black{
 }
 
 
-/* ===============PC=============== */
+/* ==========================PC========================== */
 @media all and (min-width:1200px) {
     #section0 {
         background: url(../images/bg/pc-bg.png) center;
@@ -901,10 +1016,11 @@ div.btn.btn--black{
         background-size: cover;
     }
 
-    /* ============PC-header============ */
+    /* ===================PC-header=================== */
+    /* MO 메뉴 숨기기 */
     #gnb-pc{display: flex;}
     #gnb-mo, .menu-toggle-btn{display: none;}
-
+    
     header{
         width: 100%;
         height: 90px;
@@ -912,18 +1028,18 @@ div.btn.btn--black{
         display: flex;
         justify-content: center;
     }
-    .inner{
+    header .inner{
         width: 100%;
+        margin: 0 3%;
         height: 90px;
         /* background-color: royalblue; */
         position: relative;
-        margin: 0 11%;
     }
     header h1{
         padding: 35px 0;
         font-size: 17px;
     }
-    
+    /* PC 메뉴--------------------------------- */
     #gnb-pc{
         position: absolute;
         right: 0;
@@ -931,32 +1047,46 @@ div.btn.btn--black{
     }
     #gnb-pc ul li{
         float: left;
-        padding: 0 25px;
+        margin: 0 25px;
+        position: relative;
     }
     #gnb-pc ul li:nth-child(4){
-        padding: 0 30px;
+        margin: 0 30px;
     }
     #gnb-pc ul li a{
         font-size: 17px;
         letter-spacing: 0.5px;
         color: #fff;
     }
-    #gnb-pc ul li a:hover{
+    #gnb-pc ul li.hover-line a::after{
+        position: absolute;
+        content:"";
+        display: block;
+        border-bottom: 2px solid #fff;
+        
+        /* width를 0에서 hover하면 0.3초만에 100%로 변하도록 설정 */
+        width: 0;
+        transition: width 0.3s ease-in-out;
+    }
+    #gnb-pc ul li.hover-line:hover a::after{
+        width: 100%; 
+    }
+    /* #gnb-pc ul li a:hover{
         text-decoration: underline;
         text-underline-position:under;
-    }
+    } */
+
+    /* PC 바로가기 버튼--------------------------------- */
     #gnb-pc ul li.link{
-        padding: 0 13px;
+        margin: 0 13px;
     }
     #gnb-pc ul li:last-child{
-        padding: 0 0 0 13px;
+        margin: 0 0 0 13px;
     }
     #gnb-pc ul li.link a:hover{
         text-decoration: none;
     }
-
-
-    /* link버튼---------------- */
+    
     div.btn{
         display: flex;
         justify-content: center;
@@ -966,9 +1096,9 @@ div.btn.btn--black{
         border: 1px solid #fff;
         font-size: 17px;
         font-weight: 100;
-        /* transition: all 0.3s ease-in-out; */
+        transition: all 0.4s ease-in-out;
         border-radius: 100px;
-        color: #fff;
+        color: #000;
     }
     div.btn.btn--white{
         background-color: #fff;
@@ -976,34 +1106,121 @@ div.btn.btn--black{
     }
     div.btn.btn--black{
         width: 58px;
+        color: #fff;
+    }
+    /* btn효과-------- */
+    div.btn:hover{
+        transform: scale(1.2); /*scale로 hover시 btn 커짐*/
+    }
+
+    /* ===================PC-intro=================== */
+    #section0 .inner .intro{
+        width: 100%;
+        margin: 0 20%;
+        height: 55vh;
+    }
+    #section0 h1{font-size: 4.5vw;}
+    #section0 .inner h3{font-size: 1.7vw;}
+
+    #section0 .inner .introduction span{font-size: 140px;}
+    #section0 .inner .introduction ul li{font-size: 23px;}
+
+    /* ===================PC-PORTFOLIO=================== */
+    #section1 .scroolBar{
+        /* @@오류-스크롤이 안됨!!!!!!!!!!! */
+        overflow: scroll; /*scroll 없애기*/
+    }
+    #section1 .scrollable-content{
+        height: 78vh;
+        padding: 0 auto;
+        position: relative;
+    }
+    #section1 .inner{
+        height: 100%;
+        margin: auto;
+        position: relative;
+    }
+    /* PORTFOLIO 제목 --------------------------------- */
+    #section1 .inner h2{
+        font-size: 3vw;
+        position: absolute;
+        z-index: 7;
+        top: 0;
+    }
+    /* PORTFOLIO-content --------------------------------- */
+    #section1 .inner .content-box{
+        margin: auto;
+    }
+    /* 빈공간 */
+    #section1 .inner .content-box ul li.list-blank{
+        display: block;
+        cursor: auto; /*빈칸으로 둘거기 때문에 커서 pointer 해제*/
+        width: 35%;
+        opacity: 0;
+    }
+    /* 1) A'ddict 2) STARBUCKS & 3) SEPHORA */
+    
+    #section1 .inner .content-box ul li.list-ad,
+    #section1 .inner .content-box ul li.list-st{
+        width: 31.2%;
+        height: 300px;
+    }
+    #section1 .inner .content-box ul li.list-ad .img-cont,
+    #section1 .inner .content-box ul li.list-st .img-cont{
+        width: auto;
+        height: 300px;
+    }
+    /* 3) SEPHORA */
+    #section1 .inner .content-box ul li.list-sp{
+        width: 35%;
+        height: 230px;
+    }
+    #section1 .inner .content-box ul li.list-sp .img-cont{
+        width: 100%;
+        height: 230px;
+    }
+
+    /* 4) REACT 작품란 & 5) UXUI  & 6) DESIGN 작품란 */
+    #section1 .inner .content-box ul li.list-react,
+    #section1 .inner .content-box ul li.list-uxui,
+    #section1 .inner .content-box ul li.list-od{
+        width: 20.2%;
+        height: 230px;
+    }
+    
+    #section1 .inner .content-box ul li.list-react .img-cont,
+    #section1 .inner .content-box ul li.list-uxui .img-cont,
+    #section1 .inner .content-box ul li.list-od .img-cont{
+        width: auto;
+        height: 230px;
     }
 
 
-    /* ============PC-PORTFOLIO============ */
-    
 
 
-    /* ============PC-skill============ */
+    /* ===================PC-skill=================== */
     /* mo버전 숨기기 */
     #section2 .m-skill{display: none;}
     
     #section2{display: flex;align-items: center;}
     #section2 .inner{
-        width: 1300px;
+        width: 100%;
+        padding: 0 5%;
     }
 
-    #section2 .left, #section2 .right{        
-        width: 50%;
+    #section2 .left, #section2 .right{
+        width: 40%;        
         height: 100vh;
         
         display: flex;
-        justify-content: center;
-        /* align-items: center; */
+        justify-content: space-around;
+        align-items: center;
         flex-flow: column wrap;
     }
+    #section2 .right{width: 60%;}
     /* left------------------ */
     #section2 .left-inner{
-        width: 70%;
+        width: 60%;
         /* background-color: slategrey; */
     }
     #section2 .left h2{
@@ -1012,10 +1229,7 @@ div.btn.btn--black{
         font-size: 40px; /*23px*/
         font-weight: 900;
         margin-bottom: 10px;
-        /* color: #fff;
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 10px; */
+        transition: all 0.3s ease-in-out;
     }
 
     #section2 .left-skill-box{
@@ -1087,6 +1301,7 @@ div.btn.btn--black{
         font-size: 280px; /*16vw*/
         font-weight: 700;
         padding-right: 20px;
+        transition: all 0.3s ease-in-out;
     }
     #section2 .right span{
         color: #969696;
@@ -1099,7 +1314,7 @@ div.btn.btn--black{
     
 
 
-    /* ============PC-about me============ */
+    /* ===================PC-about me=================== */
     #section3 footer{display: block;}
     #section4 {display: none;}
     #section3 img.pc-about{display: block;}
@@ -1113,10 +1328,9 @@ div.btn.btn--black{
         margin: auto;    
     }
     #section3 .about-box{
-        width: 1300px; /*적용안됨*/
+        width: 100%;
         height: auto;
         margin: auto;
-
     }
     #section3 .inner h2{font-size: 3.5vw; margin: 15px 0 40px;}
     #section3 .inner .arrange-box{
@@ -1148,8 +1362,11 @@ div.btn.btn--black{
     }
 
 
-    /* ============PC-footer============ */
-    #section3 .footer-inner{width: 1350px;margin: auto;}
+    /* ===================PC-footer=================== */
+    #section3 .footer-inner{
+        /* width: 1350px;margin: auto; */
+        width: 89%;margin: auto;
+    }
     #section3 .footer-inner .contact-box{width: 100%;}
 
 
@@ -1180,7 +1397,7 @@ div.btn.btn--black{
     }
     #section3 .footer-inner .copyright-box{width: 100%;}
 
-    /* ============PC-skill============ */
+    /* ===================PC-skill=================== */
 
 
 

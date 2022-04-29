@@ -30,22 +30,26 @@
 </head>
 
 <body>
+    <!-- 0) HEADER-------------------------- -->
     <header>
         <div class="inner">
+            <!-- 로고 -->
             <h1><a href="/">KIM HYEONJI</a></h1>
 
-            <!-- PC -->
+            <!-- PC 메뉴 -->
             <nav id="gnb-pc">
                 <ul class="main-menu">
-                    <li><a href="#section0">HOME,</a></li>
-                    <li><a href="#section1">PORTFOLIO,</a></li>
-                    <li><a href="#section2">SKILL,</a></li>
-                    <li><a href="#section3">ABOUT,</a></li>
+                    <li class="hover-line"><a href="#section0">HOME,</a></li>
+                    <li class="hover-line"><a href="#section1">PORTFOLIO,</a></li>
+                    <li class="hover-line"><a href="#section2">SKILL,</a></li>
+                    <li class="hover-line"><a href="#section3">ABOUT,</a></li>
+                    <!-- 깃허브 바로가기 -->
                     <li class="link">
                         <a href="#">
                             <div class="btn btn--white">Git Hub</div>
                         </a>
                     </li>
+                    <!-- 블로그 바로가기 -->
                     <li class="link">
                         <a href="#">
                             <div class="btn btn--black">Blog</div>
@@ -53,24 +57,29 @@
                     </li>
                 </ul>
             </nav>
-            <nav id="gnb-mo">
-                <ul class="mainMenu">
-                    <li><a href="#section0">HOME</a></li>
-                    <li><a href="#section1">PORTFOLIO</a></li>
-                    <li><a href="#section2">SKILL</a></li>
-                    <li><a href="#section3">ABOUT</a></li>
-                    <li class="link">
-                        <a href="#">
-                            <div class="btn btn--white">Git Hub</div>
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="#">
-                            <div class="btn btn--black">Blog</div>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <!-- MO & Tab 메뉴 -->
+            <div class="overlay">
+                <nav id="gnb-mo">
+                    <ul class="mainMenu">
+                        <li class="hover-line"><a href="#section0">HOME</a></li>
+                        <li class="hover-line"><a href="#section1">PORTFOLIO</a></li>
+                        <li class="hover-line"><a href="#section2">SKILL</a></li>
+                        <li class="hover-line"><a href="#section3">ABOUT</a></li>
+                        <!-- 깃허브 바로가기 -->
+                        <li class="link">
+                            <a href="#">
+                                <div class="btn btn--white">Git Hub</div>
+                            </a>
+                        </li>
+                        <!-- 블로그 바로가기 -->
+                        <li class="link">
+                            <a href="#">
+                                <div class="btn btn--black">Blog</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
             <!-- menu-toggle-btn -->
             <div class="menu-toggle-btn">
@@ -80,17 +89,19 @@
             </div>
         </div>
     </header>
-    <div class="mo-menu-box"></div>
 
 
     <div id="fullpage">
+        <!-- 1) intro-------------------------- -->
         <div class="section" id="section0">
             <div class="inner">
                 <div class="intro">
+                    <!-- 제목 -->
                     <h1>WELCOME <br>TO<br>MY PORTFOLIO</h1>
-
+                    <!-- 타이핑 효과 TXT "웹 퍼블리셔 김현지 입니다" -->
                     <h3 class="txt"></h3>
 
+                    <!-- 능력 소개 -->
                     <div class="introduction">
                         <span>${ </span>
                         <div class="intro-txt">
@@ -107,42 +118,53 @@
             </div>
         </div>
 
+        <!-- 2) PORTFOLIO-------------------------- -->
         <div class="section fp-noscroll " id="section1">
             <div class="fp-auto-height-responsive fp-auto-height">
+                <!-- 스크롤 바 생성되는 box -->
                 <div class="scrollable-content scroolBar">
                     <div class="inner">
+                        <!-- 제목 -->
                         <h2>${ PORTFOLIO }</h2>
+                        <!-- 콘텐츠 -->
                         <div class="content-box">
                             <ul>
-                                <li class="list-ad" onclick="location.href='./portfolio01_Ad.html'">
+                                <li class="list-blank"></li>
+                                <!-- A'ddict 바로가기 -->
+                                <li class="list-ad" onclick="location.href='./portfolio01_ad.html'">
                                     <div class="img-cont"></div>
                                     <div class="hover-box"></div>
                                     <h4>A'ddict<br>RESPONSIVE Clone Coding</h4>
                                 </li>
-                                <li class="list-st" onclick="location.href='./portfolio01_Ad.html'">
+                                <!-- starbucks 바로가기 -->
+                                <li class="list-st" onclick="location.href='./portfolio02_st.html'">
                                     <div class="img-cont"></div>
                                     <div class="hover-box"></div>
                                     <h4>STARBUCKS<br>Clone Coding</h4>
                                 </li>
-                                <li class="list-sp" onclick="location.href='./portfolio01_Ad.html'">
+                                <!-- sephora 바로가기 -->
+                                <li class="list-sp" onclick="location.href='./portfolio03_sp.html'">
                                     <div class="img-cont"></div>
                                     <div class="hover-box"></div>
                                     <h4>SEPHORA<br>Clone Coding</h4>
                                 </li>
+                                <!-- react 작품란 바로가기 -->
                                 <li class="list-react" onclick="location.href='./portfolio01_Ad.html'">
                                     <div class="img-cont"></div>
                                     <div class="hover-box"></div>
                                     <h4 class="only-txt">REACT<br>projects</h4>
                                 </li>
+                                <!-- uxui 바로가기 -->
                                 <li class="list-uxui" onclick="location.href='./portfolio01_Ad.html'">
                                     <div class="img-cont"></div>
                                     <div class="hover-box"></div>
                                     <h4>PlantLife<br>UX/UI Design</h4>
                                 </li>
+                                <!-- 디자인 작품란 바로가기 -->
                                 <li class="list-od" onclick="location.href='./portfolio01_Ad.html'">
                                     <div class="img-cont"></div>
                                     <div class="hover-box"></div>
-                                    <h4  class="only-txt">OTHER<br>DESIGN</h4>
+                                    <h4 class="only-txt">OTHER<br>DESIGN</h4>
                                 </li>
                             </ul>
                         </div>
@@ -151,12 +173,15 @@
             </div>
         </div>
 
+        <!-- 3) MY SKILLS-------------------------- -->
         <div class="section" id="section2">
             <div class="inner">
+                <!-- 왼쪽 txt 박스 -->
                 <div class="left">
-
                     <div class="left-inner">
+                        <!-- 제목 -->
                         <h2>${ MY SKILLS }</h2>
+                        <!-- 코딩 스킬 -->
                         <div class="left-skill-box coding-box">
                             <h3>CODING</h3>
                             <div class="skill">
@@ -167,6 +192,7 @@
                                 <span>React</span>
                             </div>
                         </div>
+                        <!-- 디자인 스킬 -->
                         <div class="left-skill-box design-box">
                             <h3>DESIGN</h3>
                             <div class="skill">
@@ -177,7 +203,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- 오른쪽 % 박스 -->
                 <div class="right">
                     <div>
                         <div class="right-txt">
@@ -187,10 +213,11 @@
                     </div>
                 </div>
 
-                <!-- mo-skill -->
+                <!-- MO & Tab 스킬 창 -->
                 <div class="m-skill">
                     <h2>${ MY SKILLS }</h2>
                     <div class="skill-inner">
+                        <!-- 코딩 스킬 -->
                         <div class="skill-box coding-box">
                             <h3>CODING</h3>
                             <div>
@@ -210,6 +237,7 @@
                                 </ul>
                             </div>
                         </div>
+                        <!-- 디자인 스킬 -->
                         <div class="skill-box design-box">
                             <h3>DESIGN</h3>
                             <div>
@@ -230,14 +258,32 @@
             </div>
         </div>
 
+        <!-- 4) ABOUT ME-------------------------- -->
         <div class="section" id="section3">
             <div class="inner">
                 <div class="about-box">
+                    <!-- 제목 -->
                     <h2>${ ABOUT ME }</h2>
+                    <!-- 자기소개 내용 -->
                     <div class="arrange-box">
-                        <div class="about-pc"><img class="pc-about" src="images/photo/pc-photo.png" alt="김현지"></div>
-                        <div class="about-img"><img class="tab-about" src="images/photo/tab-photo.png" alt="김현지"></div>
+                        <div class="about-introduction">
+                            <!-- 이미지 -->
+                            <div class="about-pc">
+                                <img class="pc-about" src="images/photo/pc-photo.png" alt="김현지">
+                            </div>
+                            <div class="about-img">
+                                <img class="tab-about" src="images/photo/tab-photo.png" alt="김현지">
+                            </div>
+                            <!-- 자기소개 박스 -->
+                            <div class="introduction-container">
+                                <p>김현지</p>
+                                <p>1997.05.30</p>
+                                <p>경기도 시흥시</p>
+                            </div>
+                        </div>
+                        <!-- TXT 박스 -->
                         <div class="about-container">
+                            <!-- Education 소개 -->
                             <div class="about-box-cont education-box">
                                 <h3>Education</h3>
                                 <ul>
@@ -263,6 +309,7 @@
                                     </li>
                                 </ul>
                             </div>
+                            <!-- License 자격증 소개 -->
                             <div class="about-box-cont license-box">
                                 <h3>License</h3>
                                 <ul>
@@ -296,8 +343,11 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 5) PC-footer-------------------------- -->
                 <footer>
                     <div class="footer-inner">
+                        <!-- contact 연락처 -->
                         <div class="contact-box">
                             <h3>CONTACT</h3>
                             <ul>
@@ -312,11 +362,13 @@
                             </ul>
                         </div>
 
+                        <!-- copyright & 상단 up -->
                         <div class="copyright-box">
                             <ul>
                                 <li>이 홈페이지는 반응형으로 제작되었습니다.</li>
                                 <li>© Kim Hyeonji 2022. All Right Reserved</li>
                             </ul>
+                            <!-- 상단으로 가는 버튼 -->
                             <a href="#">Back to Top</a>
                         </div>
                     </div>
@@ -324,6 +376,7 @@
             </div>
         </div>
 
+        <!-- 5) MO/TAB-footer-------------------------- -->
         <div class="section" id="section4">
             <div class="inner">
                 <div class="contact-box">
@@ -345,20 +398,17 @@
                         <li>이 홈페이지는 반응형으로 제작되었습니다.</li>
                         <li>© Kim Hyeonji 2022. All Right Reserved</li>
                     </ul>
-                    <a href="#">Back to Top</a>
+                    <a href="#" id="btnGoTop">Back to Top</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- <div class="section">
-        <div class="slide"> Slide 1 </div>
-        <div class="slide"> Slide 2 </div>
-        <div class="slide"> Slide 3 </div>
-        <div class="slide"> Slide 4 </div>
-    </div> -->
+    <!-- //5) MO/TAB-footer -->
 
 
+
+    <!-- ================================== -->
+    <!-- Fullpage script -->
     <script type="text/javascript">
         var myFullpage = new fullpage('#fullpage', {
             licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
