@@ -209,9 +209,11 @@ div.btn:hover{
 }s
 .pf-img.addict{
     background: url(../images/site-img/addict.png) no-repeat center;
+    background-size: cover;
 }
 .pf-img.starbucks{
     background: url(../images/site-img/starbucks.png) no-repeat center;
+    background-size: cover;
 }
 .pf-img{}
 .pf-img{}

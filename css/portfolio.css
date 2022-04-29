@@ -1,0 +1,396 @@
+@charset "UFT-8";
+
+/* ===================MO=================== */
+/* 배경색---------------------------------  */
+.slide0{background: #f3f3f3;}
+.slide1{background: #FFF9F9;}
+.slide2{background: #fff;}
+.slide3{background: #C4C4C4;}
+
+
+/* 전체 배치---------------------------------  */
+#section1 .slide-inner{
+    width: 100%;height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#section1 .inner{
+    width: 82%;
+    margin: auto;
+}
+
+/* 이미지--------------------------------- */
+.slide .pf-img{
+    width: 90%;
+    height: 190px;
+    margin: 30px auto 15px;
+    border-radius: 15px;
+}
+/* 작품 1) A'ddict 이미지 */
+.slide0 .pf-img{
+    background: url(../images/site-img/addict.png) no-repeat center;
+    background-size: cover;
+}
+/* 작품 2) STARBUCKS 이미지 */
+.slide1 .pf-img{
+    background: url(../images/site-img/starbucks.png) no-repeat center;
+    background-size: cover;
+}
+/* 작품 3) SEPHORA 이미지 */
+.slide2 .pf-img{
+    background: url(../images/site-img/sephora.png) no-repeat center;
+    background-size: cover;
+}
+/* 작품 4) PlantLife UXUI 이미지 */
+.slide3 .pf-img{
+    background: url(../images/site-img/tab-plantlife.png) no-repeat center;
+    background-size: cover;
+}
+
+/* 상단 타이틀--------------------------------- */
+.slide .inner .pf-head-title{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.slide .inner .pf-head-title p{font-weight: 100;letter-spacing: 1.1px;}
+.slide .inner .pf-head-title p:first-child{
+    font-size: 8px;
+    padding: 0 4px 0 0;
+}
+.slide .inner .pf-head-title p:last-child{
+    font-size: 12px;
+}
+
+/* 본문 타이틀 제목--------------------------------- */
+.slide .inner .txt-container{width: 90%;margin: auto;}
+.slide .inner .txt-container .pf-title{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end; /*하단에 맞춰 정렬*/
+}
+.slide .inner .txt-container .pf-title h2{
+    font-size: 6vw;
+    font-weight: 900;
+}
+.slide .inner .txt-container .pf-title span{
+    font-weight: 100;
+    font-size: 13px;
+    padding: 0 0 5px 6px;
+}
+
+/* 본문 내용--------------------------------- */
+.slide .inner .pf-txt{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-flow: column wrap;/*세로줄로 정렬*/
+}
+
+/* 브랜드 타입------- */
+.slide .inner .pf-txt .txt-brand{line-height: 1;}
+.slide .inner .pf-txt .txt-brand p{
+    font-size: 8px;
+    color: #121212;
+}
+.slide .inner .pf-txt .txt-brand span{
+    font-size: 6px;
+    font-weight: 100;
+    color: #494949;
+}
+.slide .inner .pf-txt .txt-brand span:last-child{
+    /* 가로 선 */
+    display: block;
+    width: 45px;
+    height: 1px;
+    background-color: #636363;
+    margin: 17px 0 10px;
+}
+
+/* 본문 내용 전체  */
+.slide .inner .txt-cont{padding: 7px 0;}
+/* TXT - 사용기술 등-------  */
+.slide .inner .pf-txt ul{
+    display: flex;
+    align-items: center; /* slash(/)가운데 배치 */
+    /* padding: 7px 0; */
+}
+.slide .inner .pf-txt ul li{
+    float: left;
+    font-size: 2vw;
+    font-weight: 700;
+    line-height: 1.5;
+}
+.slide .inner .pf-txt ul li span,
+.slide .inner .pf-txt div.txt-page span{
+    float: left;
+    font-size: 1.8vw;
+    font-weight: 100;
+}
+.slide .inner .pf-txt ul li.slash{
+    font-size: 20px;
+    padding: 0 9px 0 7px;
+    color: #7D7D7D;
+}
+
+/* 페이지구성------ */
+.slide .inner .pf-txt .txt-page{line-height: 1.5;}
+.slide .inner .pf-txt .txt-page p{
+    font-size: 2vw;
+    font-weight: 700;
+    
+}
+.slide .inner .pf-txt .txt-page span{
+    font-size: 1.8vw;
+    font-weight: 100;
+}
+
+/* 페이지 바로가기 btn--------------------------- */
+.slide .inner .txt-btn{
+    margin: 20px 5%;
+}
+.slide .inner .txt-btn{
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 5px 0;
+}
+.slide .inner .txt-btn input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px 15px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    margin: 0 13px 0 -8px; /* input 버튼 좌우 간격*/
+
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+
+    transition: all 0.5s ease-in-out;
+}
+/* btn-hover 효과------- */
+.slide .inner .txt-btn input:hover{
+    color: #fff;
+    background: #000;
+}
+.slide .inner .txt-btn a{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-left: 8px; /*버튼 좌우 간격*/
+}
+.slide .inner .txt-btn a div{
+    padding: 8px 13px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px #7D7D7D;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+
+    font-weight: 900;
+}
+.slide .inner .txt-btn a:hover div{
+    background-color: #000;
+    color: #fff;
+}
+.slide .inner .txt-btn a p{
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 10px; /* report txt 왼쪽 간격*/
+    position: relative
+}
+/* btn-hover 밑줄효과------- */
+.slide .inner .txt-btn a p::after{
+    position: absolute;
+    content:"";
+    display: block;
+    border-bottom: 3px solid #000;
+    /* width를 0에서 hover하면 0.3초만에 100%로 변하도록 설정 */
+    width: 0;
+    transition: width 0.3s ease-in-out; 
+    left: auto; right: 0;
+    /* left: auto, hover시 right:auto 설정 시 왼쪽에서 시작해서 오른쪽에서 끝나는게 반복됨 */
+}
+.slide .inner .txt-btn a:hover p::after{
+    width: 100%; left: 0; right: auto;
+}
+
+
+/* ===================TAB=================== */
+@media all and (min-width:768px){
+
+    /* 이미지--------------------------------- */
+    .slide .pf-img{
+        width: 90%;
+        height: 300px;
+    }
+
+    /* 상단 타이틀--------------------------------- */
+    .slide .inner .pf-head-title p:first-child{
+        font-size: 12px;
+        padding: 0 4px 0 0;
+    }
+    .slide .inner .pf-head-title p:last-child{
+        font-size: 14px;
+    }
+
+    /* 본문 내용--------------------------------- */
+    /* 본문 내용 전체  */
+    .slide .inner .pf-txt ul li{font-size: 1.9vw;}
+    .slide .inner .pf-txt ul li span,
+    .slide .inner .pf-txt div.txt-page span{font-size: 1.7vw;}
+    .slide .inner .pf-txt ul li.slash{
+        font-size: 28px;
+        padding: 0 18px 0 15px;
+    }
+
+    /* 페이지구성------ */
+    .slide .inner .pf-txt .txt-page p{font-size: 1.9vw;}
+    .slide .inner .pf-txt .txt-page span{font-size: 1.7vw;}
+
+    /* 페이지 바로가기 btn--------------------------- */
+    .slide .inner .txt-btn input{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        padding: 10px 20px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        margin: 0 13px 0 -8px; /* input 버튼 좌우 간격*/
+    
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+    
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .slide .inner .txt-btn a{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        margin-left: 8px; /*버튼 좌우 간격*/
+    }
+    .slide .inner .txt-btn a div{
+        padding: 10px 15px;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: 0px 0px 3px #7D7D7D;
+        font-size: 16px;
+        transition: all 0.5s ease-in-out;
+    }
+    .slide .inner .txt-btn a:hover div{
+        background-color: #000;
+        color: #fff;
+    }
+    .slide .inner .txt-btn a p{
+        font-size: 17px;
+        font-weight: 400;
+        margin-left: 10px; /* report txt 왼쪽 간격*/
+        position: relative
+    }
+
+
+
+}
+
+
+/* ===================PC=================== */
+@media all and (min-width:1200px) {
+    /* ===================PC-PORTFOLIO=================== */
+    #section1 .inner{
+        width: 100%;
+        margin: auto 11%;
+
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 00px;
+    }
+
+    /* 상단 타이틀--------------------------------- */
+    .slide .inner .pf-head-title{
+        width: 100%;
+        height: auto;
+        padding-top: 40px;
+    }
+
+    /* 이미지--------------------------------- */
+    .slide .pf-img{
+        width: 50%;
+        height: 60vh;
+    }
+    .slide0 .pf-img{
+        background: url(../images/site-img/addict.png) no-repeat;
+        background-size: cover;
+        background-position: -50px center; /*x축 y축*/
+    }
+
+    /* 본문 타이틀 제목--------------------------------- */
+    .slide .inner .right{width: 50%;margin: auto;}
+    .slide .inner .txt-container{
+        width: 100%;
+        padding: 0 0 0 10%;
+    }
+    .slide .inner .txt-container .pf-title h2{
+        font-size: 4vw;
+    }
+    .slide .inner .txt-container .pf-title span{
+        font-weight: 100;
+        font-size: 1.5vw;
+        padding: 0 0 13px 10px ;
+    }
+
+    /* 본문 내용--------------------------------- */
+    .slide .inner .pf-txt{
+        width: 75%;
+        margin: 30px auto;
+    }
+    /* 사용기술 & 사용프로그램 ------- */
+    .slide .inner .pf-txt .txt-brand p{font-size: 12px;}
+    .slide .inner .pf-txt .txt-brand span{font-size: 9px;}
+    .slide .inner .pf-txt .txt-brand span:last-child{width: 50px;}
+
+    /* 참여도 & 제작기간 & TPYE------- */
+    .slide .inner .pf-txt ul{
+        padding: 7px 0;
+    }
+    .slide .inner .pf-txt ul li{font-size: 14px;}
+    .slide .inner .pf-txt ul li span,
+    .slide .inner .pf-txt div.txt-page span{font-size: 12px;}
+    .slide .inner .pf-txt ul li.slash{
+        font-size: 26px;
+        padding: 0 20px 0 18px;
+    }
+    .slide .inner .pf-txt .txt-page{padding: 5px 0;}
+    .slide .inner .pf-txt .txt-page p{font-size: 14px;}
+
+
+    /* 페이지 바로가기 btn--------------------------- */
+    .slide .inner .txt-btn{
+        width: 75%;
+        margin: 0 auto;
+    }
+    .slide .inner .txt-btn input{
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 18px;
+    }
+    .slide .inner .txt-btn a{
+        margin-left: 12px; /*버튼 좌우 간격*/
+    }
+
+    .slide .inner .txt-btn a div{
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 22px;
+    }
+    .slide .inner .txt-btn a p{
+        font-size: 20px;
+        margin-left: 12px; /* report txt 왼쪽 간격*/
+    }
+
+
+}
