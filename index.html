@@ -693,50 +693,14 @@
     <!-- Fullpage script -->
     <script type="text/javascript">
         var myFullpage = new fullpage('#fullpage', {
-            licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
             //이동
             menu: '#menu',
-            anchors: ['firstPage', 'secondPage'],
+            anchors: ['Home', 'Portfolio', 'About', 'contact'],
             navigation: false, //네비게이션
             navigationPosition: 'right',
-            navigationTooltips: ['Home', 'About', 'contact', 'last'],
+            navigationTooltips: ['Home', 'Portfolio', 'About', 'contact'],
             showActiveTooltip: false,
-            slidesNavigation: false,
-            slidesNavPosition: 'bottom',
-            credits: {
-                enabled: false,
-                label: 'Made with',
-                position: 'right'
-            },
 
-            //스크롤
-            scrollingSpeed: 1200, //스크롤 속도
-            scrollOverflow: true, //요소 높이가 높을 때
-            normalScrollElements: '.scrollable-content', //일반 스크롤 요소 사용
-
-            autoScrolling: true,
-            scrollHorizontally: true,
-
-            //디자인
-            sectionsColor: ['#E1DFDD'], //세션 컬러
-
-            //사건(이벤트) - 어떤 동작나 상황이 발생했을 때 함수가 실행됨
-            //onLeave 스크롤이 시작할때 시작
-            //origin(원래 있던세션에 대한 정보),destination(이동하는 세션에 대한 정보) ,direction(스크롤 방향)
-            onLeave: function (origin, destination, direction) {},
-            //afterLoad 스크롤이 끝날때 시작
-            afterLoad: function (origin, destination, direction) {
-                if (destination == 2) {
-                    $('#section2 h3').show();
-                }
-            },
-
-            afterRender: function () {},
-            afterResize: function (width, height) {},
-            afterReBuild: function () {},
-            afterResponsive: function (isResponsive) {},
-            afterSlideLoad: function (section, origin, destination, direction) {},
-            onSlideLeave: function (section, origin, destination, direction) {}
         });
     </script>
 </body>

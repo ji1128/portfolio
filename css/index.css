@@ -135,6 +135,7 @@ header h1 a{letter-spacing:1px}
     animation: fadeInTop 0.3s ease forwards;
 }
 /* menu 글자색상------- */
+
 #gnb-mo ul li a{
     color: #fff;
     font-size: 50px;
@@ -143,6 +144,7 @@ header h1 a{letter-spacing:1px}
     position: relative;
     
 }
+
 /* menu hover 밑줄효과------- */
 #gnb-mo ul li.hover-line a::after{
     position: absolute;
@@ -772,15 +774,6 @@ div.btn:hover{
         bottom: 0; */
     }
     #section3 footer{display: none;}
-
-
-
-
-
-    /* ===================TAB-skill=================== */
-
-
-
 
 
 }
