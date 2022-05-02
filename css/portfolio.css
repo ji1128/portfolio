@@ -209,6 +209,7 @@
     color: #fff;
     background: #000;
 }
+
 .slide .inner .txt-btn a{
     display: flex;
     flex-flow: row nowrap;
@@ -311,7 +312,7 @@
     background-size: contain;
 }
 #section5 .od03 .img-txt-area .img-box{
-    background: url(../images/site-img/other-design/0d01-img.jpg) no-repeat center;
+    background: url(../images/site-img/other-design/od03-img2.png) no-repeat center;
     background-size: contain;
 }
 #section5 .od04 .img-txt-area .img-box{
@@ -332,7 +333,6 @@
     font-weight: bold;
     font-size: 12px;
 }
-
 
 /* 페이저--------------------------------- */
 #section5 .swiper-pagination-bullet{
@@ -356,7 +356,7 @@
     background-size: contain;
 }
 #section5  .swiper-pagination-bullet:nth-child(3){
-    background: url(../images/site-img/other-design/od01.png) center no-repeat;
+    background: url(../images/site-img/other-design/od03.png) center no-repeat;
     background-size: contain;
 }
 #section5  .swiper-pagination-bullet:last-child{
@@ -639,6 +639,29 @@
     #section5 .pc-txt-cont ul li span{
         font-size: 13px;
     }
+
+    /* 텍스트 btn------- */
+#section5 .btn-original{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+
+    border: 1px solid #000;
+    margin: 0 13px 0 -8px; /* input 버튼 좌우 간격*/
+
+    font-weight: 400;
+    cursor: pointer;
+
+    transition: all 0.5s ease-in-out;
+}
+#section5 .btn-original:hover{
+    color: #fff;
+    background: #000;
+}
 
     /* 페이저--------------------------------- */
     #section5 .swiper-pagination-bullet {
