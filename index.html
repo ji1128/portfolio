@@ -11,22 +11,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset@1.5.1/css/reset.min.css">
     <!-- reset -->
     <link rel="stylesheet" href="css/reset.css">
-    <!-- full page css -->
-    <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
     <!-- css -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/portfolio.css">
 
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-    <script src="js/easings.min.js"></script>
-    <!-- js -->
-    <script defer src="js/main.js"></script>
-    <!-- full page scroll -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"></script>
-    <!-- full page js -->
-    <script type="text/javascript" src="js/fullpage.min.js"></script>
     <!-- jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- scroll Magic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
+        integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- js -->
+    <script defer src="js/main.js"></script>
+
 
 </head>
 
@@ -94,16 +95,16 @@
 
     <div id="fullpage">
         <!-- 1) intro-------------------------- -->
-        <div class="section" id="section0">
+        <section class="section scroll-spy" id="section0">
             <div class="inner">
                 <div class="intro">
                     <!-- 제목 -->
-                    <h1>WELCOME <br>TO<br>MY PORTFOLIO</h1>
+                    <h1 class="back-to-position to-up delay-0">WELCOME <br>TO<br>MY PORTFOLIO</h1>
                     <!-- 타이핑 효과 TXT "웹 퍼블리셔 김현지 입니다" -->
-                    <h3 class="txt"></h3>
+                    <h3 class="txt back-to-position to-up delay-1"></h3>
 
                     <!-- 능력 소개 -->
-                    <div class="introduction">
+                    <div class="introduction back-to-position to-up delay-1">
                         <span>${ </span>
                         <div class="intro-txt">
                             <ul>
@@ -117,386 +118,386 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- 2) PORTFOLIO-------------------------- -->
-        <div class="section" id="section1">
-            <!-- 작품 1) A'ddict -->
-            <div class="slide slide0">
-                <div class="slide-inner addict">
-                    <div class="inner">
-                        <!-- 상단 타이틀 -->
-                        <div class="pf-head-title">
-                            <p>01 /</p>
-                            <p>RESPONSIVE Clone Coding</p>
+        <section class="section scroll-spy" id="section1">
+            <h2>${ PORTFOLIO }</h2>
+            <div class="swiper mySwiper back-to-position to-up ">
+                <div class="swiper-wrapper">
+                    <!-- 작품 1) A'ddict -->
+                    <div class="swiper-slide slide slide0">
+                        <div class="slide-inner addict">
+                            <div class="inner">
+                                <!-- 상단 타이틀 -->
+                                <div class="pf-head-title">
+                                    <p>01 /</p>
+                                    <p>RESPONSIVE Clone Coding</p>
+                                </div>
+
+                                <!-- 이미지 -->
+                                <div class="pf-img"></div>
+
+                                <!-- 내용 box -->
+                                <div class="right">
+                                    <div class="txt-container">
+                                        <!-- 제목 -->
+                                        <div class="pf-title addict">
+                                            <h2>A'ddict</h2>
+                                            <span>RESPONSIVE Clone Coding</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- 본문 내용 -->
+                                    <div class="pf-txt">
+                                        <!-- 브랜드 타입 -->
+                                        <div class="txt-brand">
+                                            <p>향수 브랜드</p>
+                                            <span>(포트폴리오용)</span>
+                                            <span></span>
+                                        </div>
+
+                                        <!-- 사용기술 & 사용프로그램 -->
+                                        <ul class="txt-cont txt-use">
+                                            <li>
+                                                <p>사용기술</p>
+                                                <span>HTML5, CSS3, Javascript</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>사용프로그램</p>
+                                                <span>Figma, Photoshop, Visual Studio</span>
+                                            </li>
+                                        </ul>
+
+                                        <!-- 참여도 & 제작기간 & TPYE -->
+                                        <ul class="txt-cont txt-info">
+                                            <li>
+                                                <p>참여도</p>
+                                                <span>본인 100%</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>제작기간</p>
+                                                <span>2 주</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>TYPE</p>
+                                                <span>반응형 웹</span>
+                                            </li>
+                                        </ul>
+
+                                        <!-- 페이지구성 -->
+                                        <div class="txt-cont txt-page">
+                                            <p>페이지구성</p>
+                                            <span>메인 페이지</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- btn -->
+                                    <div class="txt-btn">
+                                        <input type="button" value="ORIGINAL SITE"
+                                            onclick="window.open('https://ji1128.github.io/A-ddict/')"
+                                            class="btn-original">
+                                        <a href="./images/report/addict-report.png" onclick="window.open(this.href, '_blank', 'width=900, height=800, top=80, left=400, scrollbars=yes, resizable=yes'); return false;">
+                                            <div>→</div>
+                                            <p>REPORT</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <!-- 작품 2) STARBUCKS -->
+                    <div class="swiper-slide slide slide1">
+                        <div class="slide-inner starbucks">
+                            <div class="inner">
+                                <!-- 상단 타이틀 -->
+                                <div class="pf-head-title">
+                                    <p>02 /</p>
+                                    <p>Clone Coding</p>
+                                </div>
 
-                        <!-- 이미지 -->
-                        <div class="pf-img"></div>
+                                <!-- 이미지 -->
+                                <div class="pf-img"></div>
 
-                        <!-- 내용 box -->
-                        <div class="right">
-                            <div class="txt-container">
-                                <!-- 제목 -->
-                                <div class="pf-title addict">
-                                    <h2>A'ddict</h2>
-                                    <span>RESPONSIVE Clone Coding</span>
+                                <!-- 내용 box -->
+                                <div class="right">
+                                    <div class="txt-container">
+                                        <!-- 제목 -->
+                                        <div class="pf-title addict">
+                                            <h2>STARBUCKS</h2>
+                                            <span>Clone Coding</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- 본문 내용 -->
+                                    <div class="pf-txt">
+                                        <!-- 브랜드 타입 -->
+                                        <div class="txt-brand">
+                                            <p>프랜차이즈 카페</p>
+                                            <span>(포트폴리오용)</span>
+                                            <span></span>
+                                        </div>
+
+                                        <!-- 사용기술 & 사용프로그램 -->
+                                        <ul class="txt-cont txt-use">
+                                            <li>
+                                                <p>사용기술</p>
+                                                <span>HTML5, CSS3, Javascript</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>사용프로그램</p>
+                                                <span>Figma, Photoshop, Visual Studio</span>
+                                            </li>
+                                        </ul>
+
+                                        <!-- 참여도 & 제작기간 & TPYE -->
+                                        <ul class="txt-cont txt-info">
+                                            <li>
+                                                <p>참여도</p>
+                                                <span>본인 100%</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>제작기간</p>
+                                                <span>3 일</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>TYPE</p>
+                                                <span>PC형 웹</span>
+                                            </li>
+                                        </ul>
+
+                                        <!-- 페이지구성 -->
+                                        <div class="txt-cont txt-page">
+                                            <p>페이지구성</p>
+                                            <span>메인 페이지</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- btn -->
+                                    <div class="txt-btn">
+                                        <input type="button" value="ORIGINAL SITE"
+                                            onclick="window.open('https://ji1128.github.io/starbucks-new/')"
+                                            class="btn-original">
+                                    </div>
                                 </div>
                             </div>
-
-                            <!-- 본문 내용 -->
-                            <div class="pf-txt">
-                                <!-- 브랜드 타입 -->
-                                <div class="txt-brand">
-                                    <p>향수 브랜드</p>
-                                    <span>(포트폴리오용)</span>
-                                    <span></span>
+                        </div>
+                    </div>
+                    <!-- 작품 3) SEPHORA -->
+                    <div class="swiper-slide slide slide2">
+                        <div class="slide-inner sephora">
+                            <div class="inner">
+                                <!-- 상단 타이틀 -->
+                                <div class="pf-head-title">
+                                    <p>3 /</p>
+                                    <p>Clone Coding</p>
                                 </div>
 
-                                <!-- 사용기술 & 사용프로그램 -->
-                                <ul class="txt-cont txt-use">
-                                    <li>
-                                        <p>사용기술</p>
-                                        <span>HTML5, CSS3, Javascript</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>사용프로그램</p>
-                                        <span>Figma, Photoshop, Visual Studio</span>
-                                    </li>
-                                </ul>
+                                <!-- 이미지 -->
+                                <div class="pf-img"></div>
 
-                                <!-- 참여도 & 제작기간 & TPYE -->
-                                <ul class="txt-cont txt-info">
-                                    <li>
-                                        <p>참여도</p>
-                                        <span>본인 100%</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>제작기간</p>
-                                        <span>2 주</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>TYPE</p>
-                                        <span>반응형 웹</span>
-                                    </li>
-                                </ul>
+                                <!-- 내용 box -->
+                                <div class="right">
+                                    <div class="txt-container">
+                                        <!-- 제목 -->
+                                        <div class="pf-title addict">
+                                            <h2>SEPHORA</h2>
+                                            <span>Clone Coding</span>
+                                        </div>
+                                    </div>
 
-                                <!-- 페이지구성 -->
-                                <div class="txt-cont txt-page">
-                                    <p>페이지구성</p>
-                                    <span>메인 페이지</span>
+                                    <!-- 본문 내용 -->
+                                    <div class="pf-txt">
+                                        <!-- 브랜드 타입 -->
+                                        <div class="txt-brand">
+                                            <p>프랑스 화장품 종합 편집샵</p>
+                                            <span>(포트폴리오용)</span>
+                                            <span></span>
+                                        </div>
+
+                                        <!-- 사용기술 & 사용프로그램 -->
+                                        <ul class="txt-cont txt-use">
+                                            <li>
+                                                <p>사용기술</p>
+                                                <span>HTML5, CSS3, Javascript</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>사용프로그램</p>
+                                                <span>Figma, Photoshop, Visual Studio</span>
+                                            </li>
+                                        </ul>
+
+                                        <!-- 참여도 & 제작기간 & TPYE -->
+                                        <ul class="txt-cont txt-info">
+                                            <li>
+                                                <p>참여도</p>
+                                                <span>본인 100%</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>제작기간</p>
+                                                <span>2 주</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>TYPE</p>
+                                                <span>PC형 웹</span>
+                                            </li>
+                                        </ul>
+
+                                        <!-- 페이지구성 -->
+                                        <div class="txt-cont txt-page">
+                                            <p>페이지구성</p>
+                                            <span>메인 페이지</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- btn -->
+                                    <div class="txt-btn">
+                                        <input type="button" value="ORIGINAL SITE"
+                                            onclick="window.open('https://ji1128.github.io/A-ddict/')"
+                                            class="btn-original">
+                                        <a href="#">
+                                            <div>→</div>
+                                            <p>REPORT</p>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <!-- 작품 4) PlantLife UXUI -->
+                    <div class="swiper-slide slide slide3">
+                        <div class="slide-inner uxui">
+                            <div class="inner">
+                                <!-- 상단 타이틀 -->
+                                <div class="pf-head-title">
+                                    <p>04 /</p>
+                                    <p>UX/UI Design</p>
+                                </div>
 
-                            <!-- btn -->
-                            <div class="txt-btn">
-                                <input type="button" value="ORIGINAL SITE"
-                                    onclick="window.open('https://ji1128.github.io/A-ddict/')" class="btn-original">
-                                <a href="#">
-                                    <div>→</div>
-                                    <p>REPORT</p>
-                                </a>
+                                <!-- 이미지 -->
+                                <div class="pf-img"></div>
+
+                                <!-- 내용 box -->
+                                <div class="right">
+                                    <div class="txt-container">
+                                        <!-- 제목 -->
+                                        <div class="pf-title addict">
+                                            <h2>PlantLife</h2>
+                                            <span>UX/UI Design</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- 본문 내용 -->
+                                    <div class="pf-txt">
+                                        <!-- 브랜드 타입 -->
+                                        <div class="txt-brand">
+                                            <p>향수 브랜드</p>
+                                            <span>(포트폴리오용)</span>
+                                            <span></span>
+                                        </div>
+
+                                        <!-- 사용기술 & 사용프로그램 -->
+                                        <ul class="txt-cont txt-use">
+                                            <li>
+                                                <p>사용프로그램</p>
+                                                <span>Figma, Photoshop, Illustration</span>
+                                            </li>
+                                        </ul>
+
+                                        <!-- 참여도 & 제작기간 & TPYE -->
+                                        <ul class="txt-cont txt-info">
+                                            <li>
+                                                <p>참여도</p>
+                                                <span>본인 100%</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>제작기간</p>
+                                                <span>2 주</span>
+                                            </li>
+                                            <li class="slash">/</li>
+                                            <li>
+                                                <p>TYPE</p>
+                                                <span>UX / UI design</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- btn -->
+                                    <div class="txt-btn">
+                                        <a href="./images/report/plantlife-report.png"
+                                            onclick="window.open(this.href, '_blank', 'width=900, height=800, top=80, left=400, scrollbars=yes, resizable=yes'); return false;">
+                                            <div>→</div>
+                                            <p>REPORT</p>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- swiper 페이저 -->
+                <div class="swiper-pagination"></div>
             </div>
-            <!-- 작품 2) STARBUCKS -->
-            <div class="slide slide1">
-                <div class="slide-inner addict">
-                    <div class="inner">
-                        <!-- 상단 타이틀 -->
-                        <div class="pf-head-title">
-                            <p>01 /</p>
-                            <p>RESPONSIVE Clone Coding</p>
-                        </div>
+        </section>
 
-                        <!-- 이미지 -->
-                        <div class="pf-img"></div>
-
-                        <!-- 내용 box -->
-                        <div class="right">
-                            <div class="txt-container">
-                                <!-- 제목 -->
-                                <div class="pf-title addict">
-                                    <h2>A'ddict</h2>
-                                    <span>RESPONSIVE Clone Coding</span>
-                                </div>
-                            </div>
-
-                            <!-- 본문 내용 -->
-                            <div class="pf-txt">
-                                <!-- 브랜드 타입 -->
-                                <div class="txt-brand">
-                                    <p>향수 브랜드</p>
-                                    <span>(포트폴리오용)</span>
-                                    <span></span>
-                                </div>
-
-                                <!-- 사용기술 & 사용프로그램 -->
-                                <ul class="txt-cont txt-use">
-                                    <li>
-                                        <p>사용기술</p>
-                                        <span>HTML5, CSS3, Javascript</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>사용프로그램</p>
-                                        <span>Figma, Photoshop, Visual Studio</span>
-                                    </li>
-                                </ul>
-
-                                <!-- 참여도 & 제작기간 & TPYE -->
-                                <ul class="txt-cont txt-info">
-                                    <li>
-                                        <p>참여도</p>
-                                        <span>본인 100%</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>제작기간</p>
-                                        <span>2 주</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>TYPE</p>
-                                        <span>반응형 웹</span>
-                                    </li>
-                                </ul>
-
-                                <!-- 페이지구성 -->
-                                <div class="txt-cont txt-page">
-                                    <p>페이지구성</p>
-                                    <span>메인 페이지</span>
-                                </div>
-                            </div>
-
-                            <!-- btn -->
-                            <div class="txt-btn">
-                                <input type="button" value="ORIGINAL SITE"
-                                    onclick="window.open('https://ji1128.github.io/A-ddict/')" class="btn-original">
-                                <a href="#">
-                                    <div>→</div>
-                                    <p>REPORT</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 작품 3) SEPHORA -->
-            <div class="slide slide2">
-                <div class="slide-inner addict">
-                    <div class="inner">
-                        <!-- 상단 타이틀 -->
-                        <div class="pf-head-title">
-                            <p>01 /</p>
-                            <p>RESPONSIVE Clone Coding</p>
-                        </div>
-
-                        <!-- 이미지 -->
-                        <div class="pf-img"></div>
-
-                        <!-- 내용 box -->
-                        <div class="right">
-                            <div class="txt-container">
-                                <!-- 제목 -->
-                                <div class="pf-title addict">
-                                    <h2>A'ddict</h2>
-                                    <span>RESPONSIVE Clone Coding</span>
-                                </div>
-                            </div>
-
-                            <!-- 본문 내용 -->
-                            <div class="pf-txt">
-                                <!-- 브랜드 타입 -->
-                                <div class="txt-brand">
-                                    <p>향수 브랜드</p>
-                                    <span>(포트폴리오용)</span>
-                                    <span></span>
-                                </div>
-
-                                <!-- 사용기술 & 사용프로그램 -->
-                                <ul class="txt-cont txt-use">
-                                    <li>
-                                        <p>사용기술</p>
-                                        <span>HTML5, CSS3, Javascript</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>사용프로그램</p>
-                                        <span>Figma, Photoshop, Visual Studio</span>
-                                    </li>
-                                </ul>
-
-                                <!-- 참여도 & 제작기간 & TPYE -->
-                                <ul class="txt-cont txt-info">
-                                    <li>
-                                        <p>참여도</p>
-                                        <span>본인 100%</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>제작기간</p>
-                                        <span>2 주</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>TYPE</p>
-                                        <span>반응형 웹</span>
-                                    </li>
-                                </ul>
-
-                                <!-- 페이지구성 -->
-                                <div class="txt-cont txt-page">
-                                    <p>페이지구성</p>
-                                    <span>메인 페이지</span>
-                                </div>
-                            </div>
-
-                            <!-- btn -->
-                            <div class="txt-btn">
-                                <input type="button" value="ORIGINAL SITE"
-                                    onclick="window.open('https://ji1128.github.io/A-ddict/')" class="btn-original">
-                                <a href="#">
-                                    <div>→</div>
-                                    <p>REPORT</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 작품 4) PlantLife UXUI -->
-            <div class="slide slide3">
-                <div class="slide-inner addict">
-                    <div class="inner">
-                        <!-- 상단 타이틀 -->
-                        <div class="pf-head-title">
-                            <p>01 /</p>
-                            <p>RESPONSIVE Clone Coding</p>
-                        </div>
-
-                        <!-- 이미지 -->
-                        <div class="pf-img"></div>
-
-                        <!-- 내용 box -->
-                        <div class="right">
-                            <div class="txt-container">
-                                <!-- 제목 -->
-                                <div class="pf-title addict">
-                                    <h2>A'ddict</h2>
-                                    <span>RESPONSIVE Clone Coding</span>
-                                </div>
-                            </div>
-
-                            <!-- 본문 내용 -->
-                            <div class="pf-txt">
-                                <!-- 브랜드 타입 -->
-                                <div class="txt-brand">
-                                    <p>향수 브랜드</p>
-                                    <span>(포트폴리오용)</span>
-                                    <span></span>
-                                </div>
-
-                                <!-- 사용기술 & 사용프로그램 -->
-                                <ul class="txt-cont txt-use">
-                                    <li>
-                                        <p>사용기술</p>
-                                        <span>HTML5, CSS3, Javascript</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>사용프로그램</p>
-                                        <span>Figma, Photoshop, Visual Studio</span>
-                                    </li>
-                                </ul>
-
-                                <!-- 참여도 & 제작기간 & TPYE -->
-                                <ul class="txt-cont txt-info">
-                                    <li>
-                                        <p>참여도</p>
-                                        <span>본인 100%</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>제작기간</p>
-                                        <span>2 주</span>
-                                    </li>
-                                    <li class="slash">/</li>
-                                    <li>
-                                        <p>TYPE</p>
-                                        <span>반응형 웹</span>
-                                    </li>
-                                </ul>
-
-                                <!-- 페이지구성 -->
-                                <div class="txt-cont txt-page">
-                                    <p>페이지구성</p>
-                                    <span>메인 페이지</span>
-                                </div>
-                            </div>
-
-                            <!-- btn -->
-                            <div class="txt-btn">
-                                <input type="button" value="ORIGINAL SITE"
-                                    onclick="window.open('https://ji1128.github.io/A-ddict/')" class="btn-original">
-                                <a href="#">
-                                    <div>→</div>
-                                    <p>REPORT</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- 3) MY SKILLS-------------------------- -->
-        <div class="section" id="section2">
+        <section class="section scroll-spy" id="section2">
             <div class="inner">
-                <!-- 왼쪽 txt 박스 -->
-                <div class="left">
-                    <div class="left-inner">
-                        <!-- 제목 -->
-                        <h2>${ MY SKILLS }</h2>
-                        <!-- 코딩 스킬 -->
-                        <div class="left-skill-box coding-box">
-                            <h3>CODING</h3>
-                            <div class="skill">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>Javascript</span>
-                                <span>J-Query</span>
-                                <span>React</span>
+                <div class="pc-skill back-to-position to-up delay-0">
+                    <h2>${ MY SKILLS }</h2>
+                    <!-- 오른쪽 % 박스 -->
+                    <div class="skill-box">
+                        <div class="right">
+                            <div class="circle">
+                                <div class="right-txt">
+                                    <h2 id="skill">?</h2>
+                                    <span>%</span>
+                                </div>
                             </div>
                         </div>
-                        <!-- 디자인 스킬 -->
-                        <div class="left-skill-box design-box">
-                            <h3>DESIGN</h3>
-                            <div class="skill">
-                                <span>PS</span>
-                                <span>Illustration</span>
-                                <span>Figma</span>
+                        <!-- 왼쪽 txt 박스 -->
+                        <div class="left">
+                            <div class="left-inner">
+                                <!-- 코딩 스킬 -->
+                                <div class="left-skill-box coding-box">
+                                    <h3>CODING : </h3>
+                                    <div class="skill">
+                                        <span>HTML</span>
+                                        <span>CSS</span>
+                                        <span>Javascript</span>
+                                        <span>J-Query</span>
+                                        <span>React</span>
+                                    </div>
+                                </div>
+                                <!-- 디자인 스킬 -->
+                                <div class="left-skill-box design-box">
+                                    <h3>DESIGN : </h3>
+                                    <div class="skill">
+                                        <span>PS</span>
+                                        <span>Illustration</span>
+                                        <span>Figma</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 오른쪽 % 박스 -->
-                <div class="right">
-                    <div>
-                        <div class="right-txt">
-                            <h2 id="skill">?</h2>
-                            <span>%</span>
                         </div>
                     </div>
                 </div>
 
+
                 <!-- MO & Tab 스킬 창 -->
-                <div class="m-skill">
+                <div class="m-skill back-to-position to-up delay-0">
                     <h2>${ MY SKILLS }</h2>
                     <div class="skill-inner">
                         <!-- 코딩 스킬 -->
@@ -504,18 +505,27 @@
                             <h3>CODING</h3>
                             <div>
                                 <ul>
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>Javascript</li>
-                                    <li>J-Query</li>
-                                    <li>React</li>
-                                </ul>
-                                <ul>
-                                    <li>85%</li>
-                                    <li>85%</li>
-                                    <li>70%</li>
-                                    <li>70%</li>
-                                    <li>50%</li>
+                                    <li>
+                                        <p>HTML</p>
+                                        <p>85%</p>
+                                    </li>
+                                    <li>
+                                        <p>CSS</p>
+                                        <p>80%</p>
+                                    </li>
+
+                                    <li>
+                                        <p>Javascript</p>
+                                        <p>70%</p>
+                                    </li>
+                                    <li>
+                                        <p>J-Query</p>
+                                        <p>75%</p>
+                                    </li>
+                                    <li>
+                                        <p>React</p>
+                                        <p>50%</p>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -524,26 +534,30 @@
                             <h3>DESIGN</h3>
                             <div>
                                 <ul>
-                                    <li>PS</li>
-                                    <li>Illustration</li>
-                                    <li>Figma</li>
-                                </ul>
-                                <ul>
-                                    <li>85%</li>
-                                    <li>85%</li>
-                                    <li>95%</li>
+                                    <li>
+                                        <p>PS</p>
+                                        <p>85%</p>
+                                    </li>
+                                    <li>
+                                        <p>Illustration</p>
+                                        <p>85%</p>
+                                    </li>
+                                    <li>
+                                        <p>Figma</p>
+                                        <p>95%</p>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- 4) ABOUT ME-------------------------- -->
-        <div class="section" id="section3">
+        <section class="section scroll-spy" id="section3">
             <div class="inner">
-                <div class="about-box">
+                <div class="about-box back-to-position to-up delay-0">
                     <!-- 제목 -->
                     <h2>${ ABOUT ME }</h2>
                     <!-- 자기소개 내용 -->
@@ -627,7 +641,7 @@
                 </div>
 
                 <!-- 5) PC-footer-------------------------- -->
-                <footer>
+                <footer class="back-to-position to-fast-up delay-0">
                     <div class="footer-inner">
                         <!-- contact 연락처 -->
                         <div class="contact-box">
@@ -656,12 +670,12 @@
                     </div>
                 </footer>
             </div>
-        </div>
+        </section>
 
         <!-- 5) MO/TAB-footer-------------------------- -->
-        <div class="section" id="section4">
+        <section class="section scroll-spy" id="section4">
             <div class="inner">
-                <div class="contact-box">
+                <div class="contact-box back-to-position delay-0">
                     <h3>CONTACT</h3>
                     <ul>
                         <li>
@@ -675,31 +689,35 @@
                     </ul>
                 </div>
 
-                <div class="copyright-box">
+                <div class="copyright-box back-to-position delay-0">
                     <ul>
                         <li>이 홈페이지는 반응형으로 제작되었습니다.</li>
                         <li>© Kim Hyeonji 2022. All Right Reserved</li>
                     </ul>
-                    <a href="#" id="btnGoTop">Back to Top</a>
+                    <a href="#" id="btnGoTop" style="cursor:pointer;" onclick="window.scrollTo(0,0);">Back to Top</a>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-    <!-- //5) MO/TAB-footer -->
 
 
-
-    <!-- ================================== -->
-    <!-- Fullpage script -->
-    <script type="text/javascript">
-        var myFullpage = new fullpage('#fullpage', {
-            //이동
-            menu: '#menu',
-            anchors: ['Home', 'Portfolio', 'About', 'contact'],
-            navigation: false, //네비게이션
-            navigationPosition: 'right',
-            navigationTooltips: ['Home', 'Portfolio', 'About', 'contact'],
-            showActiveTooltip: false,
+    <script>
+        var swiper = new Swiper("#section1 .mySwiper", {
+            direction: "vertical",
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            debugger: true, //드래그 기능
+            mousewheel: true, //마우스 휠 기능
+            loop: true, //반복 기능
+            speed: 1100, //스크롤 속도
+            //자동 스크를링
+            autoplay: {
+                //시간 1000 이 1초
+                delay: 4000,
+                disableOnInteraction: false,
+            }
 
         });
     </script>

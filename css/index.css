@@ -2,6 +2,10 @@
 
 /* =====================MO========================= */
 
+::-webkit-scrollbar {
+        display: none; /* 스크롤 투명하게 */
+    }
+
 /* #section2 h3{display: none;} */
 #section0 {
     background: url(../images/bg/pc-bg.png) no-repeat;
@@ -108,7 +112,7 @@ header h1 a{letter-spacing:1px}
 /* mo-menu--------------------------------- */
 #gnb-mo{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,6 +125,8 @@ header h1 a{letter-spacing:1px}
 }
 #gnb-mo ul li{
     margin: 22px 0;
+    display: flex;
+    justify-content: center;
 }
 #gnb-mo ul li:first-child{
     margin: 0px 0 22px;
@@ -142,7 +148,6 @@ header h1 a{letter-spacing:1px}
     font-weight: 700;
     transition: all 0.3s ease-in-out;
     position: relative;
-    
 }
 
 /* menu hover 밑줄효과------- */
@@ -152,11 +157,12 @@ header h1 a{letter-spacing:1px}
     display: block;
     border-bottom: 3px solid #fff;
     /* width를 0에서 hover하면 0.3초만에 100%로 변하도록 설정 */
-    width: 0;
+    width: 0%;
     transition: width 0.3s ease-out;
+    left: auto; right: 0;
 }
-#gnb-mo ul li a.hover-line:hover p::after{
-    width: 100%; 
+#gnb-mo ul li.hover-line:hover a::after{
+    width: 100%; left: 0; right: auto;
 }
 
 /* #gnb-mo ul li a:hover{
@@ -272,24 +278,26 @@ div.btn:hover{
     line-height: 1.2;
 }
 
-/* ============MO-skill============ */
+/* ===================MO-skill=================== */
+#section2{
+    width: 100%;
+    height: 100vh;
+}
 /* pc버전 숨기기 */
-#section2 .left, #section2 .right{display: none;}
+#section2 .pc-skill {display: none;}
 
 #section2 .inner{
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    height: 100%;
+    padding: 0 11%;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 #section2 .m-skill{
     width: 80%;
-    height: 65vh;
 }
-
 #section2 .m-skill h2{
     color: #fff;
     letter-spacing: 1px;
@@ -297,24 +305,24 @@ div.btn:hover{
     font-weight: 900;
     margin-bottom: 25px;
 }
-
 #section2 .m-skill .skill-box{
-    width: 100%;
-    /* height: 35vh; */
-    /* background-color: teal; */
-    padding: 50px 15px 0;
+    /* 코딩박스 & 디자인박스 */
+    width: 90%;
+    margin: auto;
 }
 #section2 .m-skill .skill-box h3{
+    /* coding & design */
     color: #fff;
-    font-size: 4.34vw; /*18px*/
+    font-size: 18px; /*18px*/
     font-weight: 700;
     letter-spacing: 1px;
     position: relative;
 }
 #section2 .m-skill .skill-box h3::after{
+    /* coding & design 선 */
     display: block;
     content: "";
-    width: 72%;
+    width: 75%;
     height: 1px;
     background-color: #fff;
     margin: 0 auto;
@@ -322,7 +330,6 @@ div.btn:hover{
     bottom: 4px;
     right: 0;
 }
-
 #section2 .m-skill .skill-box div{
     display: flex;
     flex-flow: row wrap;
@@ -331,17 +338,27 @@ div.btn:hover{
     width: 100%;
     height: 100%;
     
-    padding: 30px 17px 0;
+    padding: 10px 17px 20px;
+}
+#section2 .m-skill .skill-box ul{
+    width: 100%;
+
 }
 #section2 .m-skill .skill-box ul li{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     color: #fff;
-    font-size: 7vw; /*29px*/
+    font-size: 25px;
     font-weight: 100;
-    line-height: 145%;
+    line-height: 150%;
+
+    transition: all 0.3s ease-in-out;
 }
 #section2 .m-skill .skill-box ul li:hover{
     font-weight: 700;
 }
+
 
 
 
@@ -464,7 +481,8 @@ div.btn:hover{
 }
 #section4 .inner .contact-box{
     width: 85%;
-    margin: 30px auto 0;
+    margin: 0 auto 0;
+    padding: 30px 0 0;
 }
 #section4 .inner h3{
     font-size: 19px;
@@ -594,52 +612,23 @@ div.btn:hover{
     }
 
     /* ===================TAB-skill=================== */
-    #section2 .m-skill{
-        width: 65%;
-        /* background-color: royalblue; */
-    }
-    #section2 .m-skill .skill-inner{
-        /* 하위 skill-box들 가운데 배치 */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-flow: column wrap;        
-    }
-    #section2 .m-skill h2{
-        color: #fff;
-        letter-spacing: 1px;
-        font-size: 5.5vw; /*23px*/
-        font-weight: 900;
-        margin-bottom: 25px;
-    }
-    #section2 .m-skill .skill-box{
-        width: 85%;
-        /* background-color: black; */
-        padding: 70px 15px 0;
-    }
     #section2 .m-skill .skill-box h3{
-        font-size: 3.17vw; /*26px*/
-    }
-    #section2 .m-skill .skill-box div{
-        padding: 28px 25px 0;
+        /* coding & design */
+        font-size: 22px; /*18px*/
     }
     #section2 .m-skill .skill-box ul li{
-        font-size: 5.48vw; /*45px*/
-        line-height: 135%;
-    }
-    #section2 .m-skill .skill-box ul li:hover{
-        font-weight: 700;
+        font-size: 34px;
     }
 
 
-    /* ===================TAB-about=================== */
+    /* ===================TAB-about ME=================== */
     #section3 img.pc-about{display: none;}
     #section3 img.tab-about{display: block;}
 
     #section3 .inner{
         position: relative;
         width: 85%;
-        height: 65vh;
+        height: 100vh;
         margin: auto;
     }
     #section3 .inner h2{
@@ -655,7 +644,6 @@ div.btn:hover{
         flex-flow: row nowrap;
     }
     /* 이미지 박스--------------------------------- */
-    #section3 .inner .about-introduction{}
     #section3 .inner .about-img{
         width: 220px;
     }
@@ -849,9 +837,10 @@ div.btn:hover{
         /* width를 0에서 hover하면 0.3초만에 100%로 변하도록 설정 */
         width: 0;
         transition: width 0.3s ease-in-out;
+        left: auto; right: 0;
     }
     #gnb-pc ul li.hover-line:hover a::after{
-        width: 100%; 
+        width: 100%;  left: 0; right: auto;
     }
     /* #gnb-pc ul li a:hover{
         text-decoration: underline;
@@ -911,117 +900,97 @@ div.btn:hover{
     /* ===================PC-skill=================== */
     /* mo버전 숨기기 */
     #section2 .m-skill{display: none;}
-    
-    #section2{display: flex;align-items: center;}
-    #section2 .inner{
+    #section2 .pc-skill {display: block;}
+    #section2 .inner{width: 100%;padding: 0 5%;}
+    #section2 .inner .pc-skill{
         width: 100%;
-        padding: 0 5%;
-    }
-
-    #section2 .left, #section2 .right{
-        width: 40%;        
-        height: 100vh;
-        
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
         flex-flow: column wrap;
     }
-    #section2 .right{width: 60%;}
-    /* left------------------ */
-    #section2 .left-inner{
-        width: 60%;
-        /* background-color: slategrey; */
-    }
-    #section2 .left h2{
+    /* 제목--------------------------------- */
+    #section2 .pc-skill > h2{
         color: #fff;
         letter-spacing: 1px;
-        font-size: 40px; /*23px*/
+        font-size: 3.5vw;
         font-weight: 900;
         margin-bottom: 10px;
         transition: all 0.3s ease-in-out;
     }
-
-    #section2 .left-skill-box{
+    /* right & left 박스 정렬 */
+    #section2 .pc-skill .skill-box{
         width: 100%;
-        /* background-color: black; */
-        padding: 25px 62px 0;
-    }
-    #section2 .left div h3{
-        color: #fff;
-        font-size: 17px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        position: relative;
-    }
-    #section2 .left div h3::after{
-        display: block;
-        content: "";
-        width: 75%;
-        height: 1px;
-        background-color: #fff;
-        margin: 0 auto;
-        position: absolute;
-        bottom: 4px;
-        right: 0;
-    }
-
-    #section2 .left div .skill{
-        display: flex;
-        flex-flow: column wrap;
-        padding: 20px 0 0;
         display: flex;
         align-items: center;
-    }
-    #section2 .left div .skill span{
-        color: #fff;
-        font-size: 45px;
-        font-weight: 100;
-        line-height: 1.2;
-        letter-spacing: 3px;
-    }
-    #section2 .left div .design-box .skill span{
-        font-size: 35px;
-    }
-    #section2 .left div .skill span:hover{
-        text-decoration: underline;
-        text-underline-position:under;
-        font-weight: 700;
+        justify-content: center;
+        flex-flow: column wrap;
     }
 
-    /* right--------------- */
-    /* 원 */
-    #section2 .right >div{
-        width: 70vmin;
-        height: 70vmin;
+    /* right--------------------------------- */
+    /* 반원 */
+    #section2 .right .circle{
+        width: 500px;
+        height: 300px;
         background-color: rgba(255, 255, 255, 0.85);
-        border-radius: 100%;
+        border-radius: 300px 300px 0 0;
         
         display: flex;
         justify-content: center;
         align-items: center;
 
-        /* position: relative; */
+        margin-bottom: 20px;
     }
     #section2 .right div .right-txt{
         position: relative;
     }
     #section2 .right h2{
         color: #000;
-        font-size: 280px; /*16vw*/
+        font-size: 190px; /*16vw*/
         font-weight: 700;
-        padding-right: 20px;
+        padding: 40px 25px 0 0;
         transition: all 0.3s ease-in-out;
     }
     #section2 .right span{
         color: #969696;
-        font-size: 70px; /*4.2vw*/
+        font-size: 65px; /*4.2vw*/
         font-weight: 700;
         position: absolute;
         bottom: 10px;
         right: -30px;
     }
-    
+
+    /* left--------------------------------- */
+    #section2 .left-inner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        margin-top: 10px; /* 반원과 text간 간격*/
+    }
+    #section2 .left .left-skill-box{
+        display: flex;
+        flex-flow: row nowrap;
+        display: flex;
+        align-items: center;
+    }
+    #section2 .left div h3{
+        /* coding & design */
+        color: #fff;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        position: relative;
+    }
+    #section2 .left div .skill{
+        padding: 10px 0; /*coding & design 스킬간의 간격*/
+    }
+    #section2 .left div .skill span{
+        color: #fff;
+        font-size: 40px;
+        font-weight: 100;
+        line-height: 1.2;
+        letter-spacing: 3px;
+        padding: 0 20px; /* skill 사이 간격 */
+    }
+
 
 
     /* ===================PC-about me=================== */
@@ -1100,14 +1069,14 @@ div.btn:hover{
     }
     #section3 .footer-inner .contact-box{
         width: 100%;
-        margin: 35px auto 0;
+        margin: 32px auto 0;
     }
     #section3 .footer-inner .contact-box ul{
         padding: 15px 45px;
     }
     #section3 .footer-inner .copyright-box{width: 100%;}
 
-    /* ===================PC-skill=================== */
+
 
 
 

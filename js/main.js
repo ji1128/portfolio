@@ -37,7 +37,7 @@ $(document).ready(function () {
     // skill -----------------------------
     // coding-skill
     var $gauge = [
-            "85", "85", "70", "70", "50"
+            "85", "80", "70", "75", "50"
         ],
         $skillCoding = $("#section2 .left .coding-box .skill span");
     $skillDesign = $("#section2 .left .design-box .skill span");
@@ -47,10 +47,10 @@ $(document).ready(function () {
         var i = $(this).index();
         console.log(i);
 
-        $("#section2 .right div h2").text($gauge[i]);//문자가 뿌려지는 곳
-        $(this).css("text-decoration", "underline");//hover할 시 나타날 효과
+        $("#section2 .right div h2").text($gauge[i]); //문자가 뿌려지는 곳
+        $(this).css("text-decoration", "underline"); //hover할 시 나타날 효과
     }, function () {
-        $(this).css("text-decoration", "");//hover하지 않았을 때 상태
+        $(this).css("text-decoration", ""); //hover하지 않았을 때 상태
     });
 
     // design-skill (위의 코드 반복)
@@ -69,8 +69,20 @@ $(document).ready(function () {
         $(this).css("text-decoration", "");
     });
 
-    // skill -----------------------------
-
+    // skroll-spy -----------------------------
+    //Masgic Scroll---------------------
+    const spyEls = document.querySelectorAll("section.scroll-spy");
+    //forEach -> 배열함수
+    spyEls.forEach(function (spyEl) {
+        new ScrollMagic.Scene({
+                triggerElement: spyEl, //보여질 부분 감지할 요소 지정
+                triggerHook: 0.8, //0.8초 동안 훅이 실행됨
+            })
+            //토글 할 요소 생성 및 제거
+            //.setClassToggle(토글 할 요소, "넣었다 뺐다 할 class 이름 생성")
+            .setClassToggle(spyEl, "show")
+            .addTo(new ScrollMagic.Controller());
+    });
 
     // skill -----------------------------
 
