@@ -31,7 +31,7 @@ $(document).ready(function () {
         //content[i++]를 이용하여 한 글자씩 더해주고, if문을 사용하여 전체 콘텐츠 길이보다 i가 커지게되면 콘텐츠를 비우고 i를 0으로 만드는 방법으로 타이핑이 반복되게 함
     };
 
-    setInterval(typing, 200);
+    setInterval(typing, 200); //반복
 
 
     // skill -----------------------------
