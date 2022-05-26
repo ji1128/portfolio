@@ -4,9 +4,9 @@
 그라데이션, 심플, 풀페이지
 
 ## 폰트
-####Title Font
+#### Title Font
 Neue Montreal
-###Content Font
+### Content Font
 >>Noto Sans KR
 
 ## 컬러
